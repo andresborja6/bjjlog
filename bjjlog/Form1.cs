@@ -8,6 +8,7 @@ namespace bjjlog
         public string serverName = "";
         public string databaseName = "";
         public string userNameG = "";
+        public string connectionString = "";
         public Form1()
         {
             InitializeComponent();
@@ -24,7 +25,7 @@ namespace bjjlog
                 databaseName = campos[1].Trim();
 
             }
-            string connectionString = "Data Source=" + serverName + ";Initial Catalog=" + databaseName + ";Integrated Security=true";
+            connectionString = "Data Source=" + serverName + ";Initial Catalog=" + databaseName + ";Integrated Security=true";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -52,7 +53,7 @@ namespace bjjlog
             string username = txtusuario.Text;
             string password = txtpass.Text;
 
-            SqlConnection conn = new SqlConnection("Data Source=" + serverName + ";Initial Catalog=" + databaseName + ";Integrated Security=true");
+            SqlConnection conn = new SqlConnection(connectionString);
 
             try
             {
@@ -69,7 +70,7 @@ namespace bjjlog
                     if (reader.Read())
                     {
                         Menu mainForm = new Menu();
-                        //mainForm.userNameG = reader.GetString(0);
+                        mainForm.connectionString = connectionString;
                         mainForm.Show();
                         this.Hide();
                     }

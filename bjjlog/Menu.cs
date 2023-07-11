@@ -16,8 +16,18 @@ namespace bjjlog
         {
             InitializeComponent();
         }
-
+        public string connectionString { get; set; }
         private void Menu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
         {
 
         }

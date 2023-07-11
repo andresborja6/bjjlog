@@ -10,5 +10,17 @@
     <Compile Update="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Planes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Registros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Reportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UsuarioApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

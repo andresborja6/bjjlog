@@ -52,12 +52,13 @@
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 1, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 3;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            tableLayoutPanel1.Size = new Size(384, 126);
+            tableLayoutPanel1.Size = new Size(439, 168);
             tableLayoutPanel1.TabIndex = 2;
             // 
             // tableLayoutPanel2
@@ -67,12 +68,13 @@
             tableLayoutPanel2.Controls.Add(tableLayoutPanel3, 0, 0);
             tableLayoutPanel2.Controls.Add(tableLayoutPanel4, 0, 1);
             tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(41, 15);
+            tableLayoutPanel2.Location = new Point(46, 20);
+            tableLayoutPanel2.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 2;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 63.82979F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 36.17021F));
-            tableLayoutPanel2.Size = new Size(301, 94);
+            tableLayoutPanel2.Size = new Size(345, 126);
             tableLayoutPanel2.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -85,22 +87,24 @@
             tableLayoutPanel3.Controls.Add(label2, 0, 1);
             tableLayoutPanel3.Controls.Add(txtserver, 1, 0);
             tableLayoutPanel3.Dock = DockStyle.Fill;
-            tableLayoutPanel3.Location = new Point(3, 3);
+            tableLayoutPanel3.Location = new Point(3, 4);
+            tableLayoutPanel3.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 2;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel3.Size = new Size(295, 54);
+            tableLayoutPanel3.Size = new Size(339, 72);
             tableLayoutPanel3.TabIndex = 0;
             // 
             // txtdatabase
             // 
             txtdatabase.Dock = DockStyle.Fill;
-            txtdatabase.Location = new Point(138, 30);
+            txtdatabase.Location = new Point(158, 40);
+            txtdatabase.Margin = new Padding(3, 4, 3, 4);
             txtdatabase.Name = "txtdatabase";
-            txtdatabase.Size = new Size(154, 23);
+            txtdatabase.Size = new Size(178, 27);
             txtdatabase.TabIndex = 4;
-            txtdatabase.Text = "Biblioteca";
+            txtdatabase.Text = "bjjlog";
             // 
             // label1
             // 
@@ -108,7 +112,7 @@
             label1.Dock = DockStyle.Fill;
             label1.Location = new Point(3, 0);
             label1.Name = "label1";
-            label1.Size = new Size(129, 27);
+            label1.Size = new Size(149, 36);
             label1.TabIndex = 0;
             label1.Text = "Servidor";
             label1.TextAlign = ContentAlignment.MiddleRight;
@@ -117,9 +121,9 @@
             // 
             label2.AutoSize = true;
             label2.Dock = DockStyle.Fill;
-            label2.Location = new Point(3, 27);
+            label2.Location = new Point(3, 36);
             label2.Name = "label2";
-            label2.Size = new Size(129, 27);
+            label2.Size = new Size(149, 36);
             label2.TabIndex = 1;
             label2.Text = "Base de datos";
             label2.TextAlign = ContentAlignment.MiddleRight;
@@ -127,11 +131,12 @@
             // txtserver
             // 
             txtserver.Dock = DockStyle.Fill;
-            txtserver.Location = new Point(138, 3);
+            txtserver.Location = new Point(158, 4);
+            txtserver.Margin = new Padding(3, 4, 3, 4);
             txtserver.Name = "txtserver";
-            txtserver.Size = new Size(154, 23);
+            txtserver.Size = new Size(178, 27);
             txtserver.TabIndex = 3;
-            txtserver.Text = "AndresBorja\\\\SQLEXPRESS";
+            txtserver.Text = "localhost\\\\SQLEXPRESS";
             // 
             // tableLayoutPanel4
             // 
@@ -141,18 +146,20 @@
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 37.6271172F));
             tableLayoutPanel4.Controls.Add(btnguardar, 1, 0);
             tableLayoutPanel4.Dock = DockStyle.Fill;
-            tableLayoutPanel4.Location = new Point(3, 63);
+            tableLayoutPanel4.Location = new Point(3, 84);
+            tableLayoutPanel4.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 1;
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel4.Size = new Size(295, 28);
+            tableLayoutPanel4.Size = new Size(339, 38);
             tableLayoutPanel4.TabIndex = 1;
             // 
             // btnguardar
             // 
-            btnguardar.Location = new Point(114, 3);
+            btnguardar.Location = new Point(130, 4);
+            btnguardar.Margin = new Padding(3, 4, 3, 4);
             btnguardar.Name = "btnguardar";
-            btnguardar.Size = new Size(66, 21);
+            btnguardar.Size = new Size(75, 28);
             btnguardar.TabIndex = 0;
             btnguardar.Text = "Guardar";
             btnguardar.UseVisualStyleBackColor = true;
@@ -160,11 +167,12 @@
             // 
             // Conexion
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(384, 126);
+            ClientSize = new Size(439, 168);
             Controls.Add(tableLayoutPanel1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Conexion";
             Text = "Conexion";
             tableLayoutPanel1.ResumeLayout(false);
