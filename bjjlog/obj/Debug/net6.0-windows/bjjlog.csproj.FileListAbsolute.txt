@@ -15,3 +15,11 @@ C:\Users\57311\Documents\Herramientas de programacion II\bjjlog\bjjlog\obj\Debug
 C:\Users\57311\Documents\Herramientas de programacion II\bjjlog\bjjlog\obj\Debug\net6.0-windows\bjjlog.pdb
 C:\Users\57311\Documents\Herramientas de programacion II\bjjlog\bjjlog\obj\Debug\net6.0-windows\bjjlog.genruntimeconfig.cache
 C:\Users\57311\Documents\Herramientas de programacion II\bjjlog\bjjlog\obj\Debug\net6.0-windows\ref\bjjlog.dll
+C:\Users\57311\Documents\Herramientas de programacion II\bjjlog\bjjlog\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+C:\Users\57311\Documents\Herramientas de programacion II\bjjlog\bjjlog\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\57311\Documents\Herramientas de programacion II\bjjlog\bjjlog\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\57311\Documents\Herramientas de programacion II\bjjlog\bjjlog\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\57311\Documents\Herramientas de programacion II\bjjlog\bjjlog\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\57311\Documents\Herramientas de programacion II\bjjlog\bjjlog\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\57311\Documents\Herramientas de programacion II\bjjlog\bjjlog\obj\Debug\net6.0-windows\bjjlog.Menu.resources
+C:\Users\57311\Documents\Herramientas de programacion II\bjjlog\bjjlog\obj\Debug\net6.0-windows\bjjlog.csproj.CopyComplete
