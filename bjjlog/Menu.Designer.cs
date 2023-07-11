@@ -34,10 +34,10 @@
             tableLayoutPanel2 = new TableLayoutPanel();
             tableLayoutPanel3 = new TableLayoutPanel();
             tableLayoutPanel4 = new TableLayoutPanel();
-            button4 = new Button();
             button1 = new Button();
-            button2 = new Button();
             button3 = new Button();
+            button2 = new Button();
+            button4 = new Button();
             button5 = new Button();
             tableLayoutPanel5 = new TableLayoutPanel();
             label2 = new Label();
@@ -113,37 +113,26 @@
             // 
             // tableLayoutPanel4
             // 
-            tableLayoutPanel4.ColumnCount = 4;
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel4.Controls.Add(button4, 3, 0);
-            tableLayoutPanel4.Controls.Add(button1, 0, 0);
-            tableLayoutPanel4.Controls.Add(button2, 2, 0);
-            tableLayoutPanel4.Controls.Add(button3, 1, 0);
+            tableLayoutPanel4.ColumnCount = 6;
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            tableLayoutPanel4.Controls.Add(button4, 4, 1);
+            tableLayoutPanel4.Controls.Add(button2, 3, 1);
+            tableLayoutPanel4.Controls.Add(button3, 2, 1);
+            tableLayoutPanel4.Controls.Add(button1, 1, 1);
             tableLayoutPanel4.Dock = DockStyle.Fill;
             tableLayoutPanel4.Location = new Point(98, 91);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
-            tableLayoutPanel4.RowCount = 2;
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 67F));
+            tableLayoutPanel4.RowCount = 3;
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 60F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel4.Size = new Size(755, 382);
             tableLayoutPanel4.TabIndex = 0;
-            // 
-            // button4
-            // 
-            button4.BackgroundImage = (Image)resources.GetObject("button4.BackgroundImage");
-            button4.BackgroundImageLayout = ImageLayout.Zoom;
-            button4.Dock = DockStyle.Fill;
-            button4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button4.Location = new Point(567, 3);
-            button4.Name = "button4";
-            button4.Size = new Size(185, 309);
-            button4.TabIndex = 3;
-            button4.Text = "Usuarios APP";
-            button4.TextAlign = ContentAlignment.BottomCenter;
-            button4.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -152,9 +141,9 @@
             button1.Dock = DockStyle.Fill;
             button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             button1.ImageAlign = ContentAlignment.TopCenter;
-            button1.Location = new Point(3, 3);
+            button1.Location = new Point(78, 79);
             button1.Name = "button1";
-            button1.Size = new Size(182, 309);
+            button1.Size = new Size(145, 223);
             button1.TabIndex = 0;
             button1.Text = "Registros";
             button1.TextAlign = ContentAlignment.BottomCenter;
@@ -162,33 +151,50 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // button2
-            // 
-            button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
-            button2.BackgroundImageLayout = ImageLayout.Zoom;
-            button2.Dock = DockStyle.Fill;
-            button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Location = new Point(379, 3);
-            button2.Name = "button2";
-            button2.Size = new Size(182, 309);
-            button2.TabIndex = 2;
-            button2.Text = "Planes y Tarifas";
-            button2.TextAlign = ContentAlignment.BottomCenter;
-            button2.UseVisualStyleBackColor = true;
-            // 
             // button3
             // 
             button3.BackgroundImage = (Image)resources.GetObject("button3.BackgroundImage");
             button3.BackgroundImageLayout = ImageLayout.Zoom;
             button3.Dock = DockStyle.Fill;
             button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button3.Location = new Point(191, 3);
+            button3.Location = new Point(229, 79);
             button3.Name = "button3";
-            button3.Size = new Size(182, 309);
+            button3.Size = new Size(145, 223);
             button3.TabIndex = 1;
             button3.Text = "Reportes";
             button3.TextAlign = ContentAlignment.BottomCenter;
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // button2
+            // 
+            button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
+            button2.BackgroundImageLayout = ImageLayout.Zoom;
+            button2.Dock = DockStyle.Fill;
+            button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.Location = new Point(380, 79);
+            button2.Name = "button2";
+            button2.Size = new Size(145, 223);
+            button2.TabIndex = 2;
+            button2.Text = "Planes y Tarifas";
+            button2.TextAlign = ContentAlignment.BottomCenter;
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // button4
+            // 
+            button4.BackgroundImage = (Image)resources.GetObject("button4.BackgroundImage");
+            button4.BackgroundImageLayout = ImageLayout.Zoom;
+            button4.Dock = DockStyle.Fill;
+            button4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button4.Location = new Point(531, 79);
+            button4.Name = "button4";
+            button4.Size = new Size(145, 223);
+            button4.TabIndex = 3;
+            button4.Text = "Usuarios APP";
+            button4.TextAlign = ContentAlignment.BottomCenter;
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button5
             // 

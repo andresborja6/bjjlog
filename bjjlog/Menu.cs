@@ -24,12 +24,34 @@ namespace bjjlog
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Registros registros = new Registros();
+            registros.connectionString = connectionString;
+            registros.ShowDialog();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
+            this.Close();
+            Form1 form1 = new Form1();
+            form1.ShowDialog();
+        }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Reportes reportes = new Reportes();
+            reportes.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Planes planes = new Planes();
+            planes.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            UsuarioApp usuarioApp = new UsuarioApp();
+            usuarioApp.ShowDialog();
         }
     }
 }

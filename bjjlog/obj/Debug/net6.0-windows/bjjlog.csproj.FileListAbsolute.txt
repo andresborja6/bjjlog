@@ -50,3 +50,7 @@ C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\obj\Debug\net6.0-windows\bjjlog.gen
 C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\obj\Debug\net6.0-windows\ref\bjjlog.dll
 C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\obj\Debug\net6.0-windows\bjjlog.Conexion.resources
 C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\obj\Debug\net6.0-windows\bjjlog.Properties.Resources.resources
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\obj\Debug\net6.0-windows\bjjlog.Planes.resources
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\obj\Debug\net6.0-windows\bjjlog.Registros.resources
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\obj\Debug\net6.0-windows\bjjlog.Reportes.resources
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\obj\Debug\net6.0-windows\bjjlog.UsuarioApp.resources
