@@ -23,3 +23,29 @@ C:\Users\57311\Documents\Herramientas de programacion II\bjjlog\bjjlog\bin\Debug
 C:\Users\57311\Documents\Herramientas de programacion II\bjjlog\bjjlog\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\57311\Documents\Herramientas de programacion II\bjjlog\bjjlog\obj\Debug\net6.0-windows\bjjlog.Menu.resources
 C:\Users\57311\Documents\Herramientas de programacion II\bjjlog\bjjlog\obj\Debug\net6.0-windows\bjjlog.csproj.CopyComplete
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\bin\Debug\net6.0-windows\bjjlog.exe
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\bin\Debug\net6.0-windows\bjjlog.deps.json
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\bin\Debug\net6.0-windows\bjjlog.runtimeconfig.json
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\bin\Debug\net6.0-windows\bjjlog.dll
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\bin\Debug\net6.0-windows\bjjlog.pdb
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\obj\Debug\net6.0-windows\bjjlog.csproj.AssemblyReference.cache
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\obj\Debug\net6.0-windows\bjjlog.Form1.resources
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\obj\Debug\net6.0-windows\bjjlog.Menu.resources
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\obj\Debug\net6.0-windows\bjjlog.csproj.GenerateResource.cache
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\obj\Debug\net6.0-windows\bjjlog.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\obj\Debug\net6.0-windows\bjjlog.AssemblyInfoInputs.cache
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\obj\Debug\net6.0-windows\bjjlog.AssemblyInfo.cs
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\obj\Debug\net6.0-windows\bjjlog.csproj.CoreCompileInputs.cache
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\obj\Debug\net6.0-windows\bjjlog.csproj.CopyComplete
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\obj\Debug\net6.0-windows\bjjlog.dll
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\obj\Debug\net6.0-windows\refint\bjjlog.dll
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\obj\Debug\net6.0-windows\bjjlog.pdb
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\obj\Debug\net6.0-windows\bjjlog.genruntimeconfig.cache
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\obj\Debug\net6.0-windows\ref\bjjlog.dll
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\obj\Debug\net6.0-windows\bjjlog.Conexion.resources

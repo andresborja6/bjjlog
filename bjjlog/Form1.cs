@@ -5,8 +5,8 @@ namespace bjjlog
 {
     public partial class Form1 : Form
     {
-        public string serverName = "AndresBorja\\SQLEXPRESS";
-        public string databaseName = "usuarios";
+        public string serverName = "";
+        public string databaseName = "";
         public string userNameG = "";
         public Form1()
         {
@@ -15,6 +15,35 @@ namespace bjjlog
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            string[] filePath = new string[0];
+            filePath = File.ReadAllLines(Environment.CurrentDirectory + @"\datosserver.txt");
+            foreach (string linea in filePath)
+            {
+                string[] campos = linea.Split(',');
+                serverName = campos[0].Trim().Replace("\\\\", "\\");
+                databaseName = campos[1].Trim();
+
+            }
+            string connectionString = "Data Source=" + serverName + ";Initial Catalog=" + databaseName + ";Integrated Security=true";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Por favor actualice los datos de conexion a la base de datos");
+                    Conexion con = new Conexion();
+                    this.WindowState = FormWindowState.Minimized;
+                    con.Show();
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
 
         }
 
