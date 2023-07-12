@@ -8,10 +8,68 @@
     ".NETCoreApp,Version=v6.0": {
       "bjjlog/1.0.0": {
         "dependencies": {
-          "System.Data.SqlClient": "4.8.5"
+          "AForge": "2.2.5",
+          "AForge.Imaging": "2.2.5",
+          "AForge.Video": "2.2.5",
+          "AForge.Video.DirectShow": "2.2.5",
+          "System.Data.SqlClient": "4.8.5",
+          "System.Drawing.Common": "7.0.0"
         },
         "runtime": {
           "bjjlog.dll": {}
+        }
+      },
+      "AForge/2.2.5": {
+        "runtime": {
+          "lib/AForge.dll": {
+            "assemblyVersion": "2.2.5.0",
+            "fileVersion": "2.2.5.0"
+          }
+        }
+      },
+      "AForge.Imaging/2.2.5": {
+        "dependencies": {
+          "AForge": "2.2.5",
+          "AForge.Math": "2.2.5"
+        },
+        "runtime": {
+          "lib/AForge.Imaging.dll": {
+            "assemblyVersion": "2.2.5.0",
+            "fileVersion": "2.2.5.0"
+          }
+        }
+      },
+      "AForge.Math/2.2.5": {
+        "dependencies": {
+          "AForge": "2.2.5"
+        },
+        "runtime": {
+          "lib/AForge.Math.dll": {
+            "assemblyVersion": "2.2.5.0",
+            "fileVersion": "2.2.5.0"
+          }
+        }
+      },
+      "AForge.Video/2.2.5": {
+        "dependencies": {
+          "AForge": "2.2.5"
+        },
+        "runtime": {
+          "lib/AForge.Video.dll": {
+            "assemblyVersion": "2.2.5.0",
+            "fileVersion": "2.2.5.0"
+          }
+        }
+      },
+      "AForge.Video.DirectShow/2.2.5": {
+        "dependencies": {
+          "AForge.Video": "2.2.5"
+        },
+        "runtime": {
+          "lib/AForge.Video.DirectShow.dll": {
+            "assemblyVersion": "2.2.5.0",
+            "fileVersion": "2.2.5.0"
+          }
         }
       },
       "Microsoft.NETCore.Platforms/3.1.0": {},
@@ -19,6 +77,22 @@
         "dependencies": {
           "System.Security.AccessControl": "4.7.0",
           "System.Security.Principal.Windows": "4.7.0"
+        }
+      },
+      "Microsoft.Win32.SystemEvents/7.0.0": {
+        "runtime": {
+          "lib/net6.0/Microsoft.Win32.SystemEvents.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.22.51805"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.22.51805"
+          }
         }
       },
       "runtime.native.System.Data.SqlClient.sni/4.7.0": {
@@ -82,6 +156,25 @@
           }
         }
       },
+      "System.Drawing.Common/7.0.0": {
+        "dependencies": {
+          "Microsoft.Win32.SystemEvents": "7.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/System.Drawing.Common.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.22.51805"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net6.0/System.Drawing.Common.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.22.51805"
+          }
+        }
+      },
       "System.Security.AccessControl/4.7.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
@@ -97,6 +190,41 @@
       "serviceable": false,
       "sha512": ""
     },
+    "AForge/2.2.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-clkumhM9DggqIzEXAHgVLeWO4arG5YfoPr7J4jfjJx35AoeEIJSSm49J25bwp/9mXQYLwi7y1Wunc8qgYJsGxg==",
+      "path": "aforge/2.2.5",
+      "hashPath": "aforge.2.2.5.nupkg.sha512"
+    },
+    "AForge.Imaging/2.2.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-n8l7Zdsm89EFW9Uz4uCO3D428Gu4Q56YxixSMJPruen1c30R8R9Mm8AreTdoOi2XjN5id04JwFFlXYTk8pIIfw==",
+      "path": "aforge.imaging/2.2.5",
+      "hashPath": "aforge.imaging.2.2.5.nupkg.sha512"
+    },
+    "AForge.Math/2.2.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pmT1WobVv13vMxwXhCu8sRunxjiUHyURWS0+dsW/aBPi06xiyYIdCLHI6jph9Axb4QoLIlb85eBI6zd2EAbGIg==",
+      "path": "aforge.math/2.2.5",
+      "hashPath": "aforge.math.2.2.5.nupkg.sha512"
+    },
+    "AForge.Video/2.2.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XqzcOXtBUagEPRqg/00oayxlCPmxP4284SdM62mVotsNoD03fs19BrzdMBfhUOOYPyd0B/IXH7tEWnSDmc2gxA==",
+      "path": "aforge.video/2.2.5",
+      "hashPath": "aforge.video.2.2.5.nupkg.sha512"
+    },
+    "AForge.Video.DirectShow/2.2.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pEch6felU/RGAbl0A7yjaQjsGxwiRFU9R+qBqR92wQo++XhzPLeQaZHnAPIBYaG7MfoqtjgCDkK4z3Tra4VQ3w==",
+      "path": "aforge.video.directshow/2.2.5",
+      "hashPath": "aforge.video.directshow.2.2.5.nupkg.sha512"
+    },
     "Microsoft.NETCore.Platforms/3.1.0": {
       "type": "package",
       "serviceable": true,
@@ -110,6 +238,13 @@
       "sha512": "sha512-KSrRMb5vNi0CWSGG1++id2ZOs/1QhRqROt+qgbEAdQuGjGrFcl4AOl4/exGPUYz2wUnU42nvJqon1T3U0kPXLA==",
       "path": "microsoft.win32.registry/4.7.0",
       "hashPath": "microsoft.win32.registry.4.7.0.nupkg.sha512"
+    },
+    "Microsoft.Win32.SystemEvents/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2nXPrhdAyAzir0gLl8Yy8S5Mnm/uBSQQA7jEsILOS1MTyS7DbmV1NgViMtvV1sfCD1ebITpNwb1NIinKeJgUVQ==",
+      "path": "microsoft.win32.systemevents/7.0.0",
+      "hashPath": "microsoft.win32.systemevents.7.0.0.nupkg.sha512"
     },
     "runtime.native.System.Data.SqlClient.sni/4.7.0": {
       "type": "package",
@@ -145,6 +280,13 @@
       "sha512": "sha512-fRqxut4lrndPHrXD+ht1XRmCL3obuKldm4XjCRYS9p5f7FSR7shBxAwTkDrpFMsHC9BhNgjjmUtiIjvehn5zkg==",
       "path": "system.data.sqlclient/4.8.5",
       "hashPath": "system.data.sqlclient.4.8.5.nupkg.sha512"
+    },
+    "System.Drawing.Common/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KIX+oBU38pxkKPxvLcLfIkOV5Ien8ReN78wro7OF5/erwcmortzeFx+iBswlh2Vz6gVne0khocQudGwaO1Ey6A==",
+      "path": "system.drawing.common/7.0.0",
+      "hashPath": "system.drawing.common.7.0.0.nupkg.sha512"
     },
     "System.Security.AccessControl/4.7.0": {
       "type": "package",

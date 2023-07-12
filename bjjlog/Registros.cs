@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -78,6 +79,13 @@ namespace bjjlog
             {
                 e.Handled = true;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Addregistro addregistro = new Addregistro();
+            addregistro.connectionString = connectionString;
+            addregistro.ShowDialog();
         }
     }
 }

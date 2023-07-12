@@ -218,6 +218,7 @@
             button1.Text = "Agregar Registro";
             button1.TextAlign = ContentAlignment.BottomCenter;
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // Registros
             // 
