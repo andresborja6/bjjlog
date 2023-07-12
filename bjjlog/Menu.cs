@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -45,6 +46,7 @@ namespace bjjlog
         private void button2_Click(object sender, EventArgs e)
         {
             Planes planes = new Planes();
+            planes.connectionString = connectionString;
             planes.ShowDialog();
         }
 

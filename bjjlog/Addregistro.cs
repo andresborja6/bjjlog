@@ -14,8 +14,8 @@ namespace bjjlog
 {
     public partial class Addregistro : Form
     {
-        private FilterInfoCollection videoDevices; // Colección de dispositivos de video
-        private VideoCaptureDevice videoSource; // Dispositivo de captura de video
+        private FilterInfoCollection videoDevices;
+        private VideoCaptureDevice videoSource;
         private Bitmap capturedImage;
         private bool isVideoPlaying = true;
         public string connectionString { get; set; }
@@ -26,7 +26,10 @@ namespace bjjlog
 
         private void Addregistro_Load(object sender, EventArgs e)
         {
-
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.CustomFormat = "dd/MM/yyyy";
+            dateTimePicker2.Format = DateTimePickerFormat.Custom;
+            dateTimePicker2.CustomFormat = "dd/MM/yyyy";
             videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             foreach (FilterInfo info in videoDevices)
             {
@@ -44,7 +47,7 @@ namespace bjjlog
                 using (Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone())
                 {
                     int nuevoAncho = 384;
-                    int nuevoAlto = 213;
+                    int nuevoAlto = 247;
                     Bitmap resizedBitmap = new Bitmap(bitmap, nuevoAncho, nuevoAlto);
                     pictureBox1.Image = resizedBitmap;
                 }
@@ -70,18 +73,14 @@ namespace bjjlog
         {
             if (videoSource != null && videoSource.IsRunning)
             {
-                // Capturar el marco actual de la cámara
                 Bitmap currentFrame = (Bitmap)pictureBox1.Image.Clone();
 
-                // Asignar el marco capturado a la variable capturedImage
                 capturedImage = currentFrame;
 
-                // Detener la reproducción del video
                 videoSource.SignalToStop();
                 videoSource.WaitForStop();
                 isVideoPlaying = false;
 
-                // Mostrar la imagen capturada en el PictureBox
                 pictureBox1.Image = capturedImage;
             }
         }

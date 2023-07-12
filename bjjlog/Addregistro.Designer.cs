@@ -61,22 +61,29 @@
             textBox9 = new TextBox();
             textBox11 = new TextBox();
             textBox12 = new TextBox();
+            comboBox2 = new ComboBox();
+            dateTimePicker1 = new DateTimePicker();
+            dateTimePicker2 = new DateTimePicker();
             tableLayoutPanel5 = new TableLayoutPanel();
             tableLayoutPanel6 = new TableLayoutPanel();
-            pictureBox1 = new PictureBox();
             tableLayoutPanel7 = new TableLayoutPanel();
             button3 = new Button();
             button1 = new Button();
             button2 = new Button();
+            pictureBox1 = new PictureBox();
             comboBox1 = new ComboBox();
+            label18 = new Label();
+            tableLayoutPanel8 = new TableLayoutPanel();
+            button4 = new Button();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
             tableLayoutPanel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tableLayoutPanel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            tableLayoutPanel8.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -176,6 +183,9 @@
             tableLayoutPanel3.Controls.Add(textBox9, 1, 3);
             tableLayoutPanel3.Controls.Add(textBox11, 5, 3);
             tableLayoutPanel3.Controls.Add(textBox12, 1, 4);
+            tableLayoutPanel3.Controls.Add(comboBox2, 3, 4);
+            tableLayoutPanel3.Controls.Add(dateTimePicker1, 3, 2);
+            tableLayoutPanel3.Controls.Add(dateTimePicker2, 5, 4);
             tableLayoutPanel3.Dock = DockStyle.Fill;
             tableLayoutPanel3.Location = new Point(3, 3);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -474,6 +484,36 @@
             textBox12.Size = new Size(131, 27);
             textBox12.TabIndex = 28;
             // 
+            // comboBox2
+            // 
+            comboBox2.Dock = DockStyle.Fill;
+            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Items.AddRange(new object[] { "Si", "No" });
+            comboBox2.Location = new Point(433, 115);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(140, 28);
+            comboBox2.TabIndex = 30;
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Dock = DockStyle.Fill;
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.Location = new Point(433, 59);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(140, 27);
+            dateTimePicker1.TabIndex = 31;
+            dateTimePicker1.Value = new DateTime(2023, 7, 12, 0, 0, 0, 0);
+            // 
+            // dateTimePicker2
+            // 
+            dateTimePicker2.Dock = DockStyle.Fill;
+            dateTimePicker2.Format = DateTimePickerFormat.Custom;
+            dateTimePicker2.Location = new Point(688, 115);
+            dateTimePicker2.Name = "dateTimePicker2";
+            dateTimePicker2.Size = new Size(133, 27);
+            dateTimePicker2.TabIndex = 32;
+            // 
             // tableLayoutPanel5
             // 
             tableLayoutPanel5.ColumnCount = 3;
@@ -481,13 +521,13 @@
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             tableLayoutPanel5.Controls.Add(tableLayoutPanel6, 1, 0);
+            tableLayoutPanel5.Controls.Add(tableLayoutPanel8, 1, 1);
             tableLayoutPanel5.Dock = DockStyle.Fill;
             tableLayoutPanel5.Location = new Point(3, 191);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
-            tableLayoutPanel5.RowCount = 3;
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 74.2990646F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 5.60747671F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel5.RowCount = 2;
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 90.88785F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 9.112149F));
             tableLayoutPanel5.Size = new Size(824, 428);
             tableLayoutPanel5.TabIndex = 3;
             // 
@@ -497,27 +537,20 @@
             tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80F));
             tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
-            tableLayoutPanel6.Controls.Add(pictureBox1, 1, 1);
-            tableLayoutPanel6.Controls.Add(tableLayoutPanel7, 1, 2);
-            tableLayoutPanel6.Controls.Add(comboBox1, 1, 0);
+            tableLayoutPanel6.Controls.Add(tableLayoutPanel7, 1, 3);
+            tableLayoutPanel6.Controls.Add(pictureBox1, 1, 2);
+            tableLayoutPanel6.Controls.Add(comboBox1, 1, 1);
+            tableLayoutPanel6.Controls.Add(label18, 1, 0);
             tableLayoutPanel6.Dock = DockStyle.Fill;
             tableLayoutPanel6.Location = new Point(167, 3);
             tableLayoutPanel6.Name = "tableLayoutPanel6";
-            tableLayoutPanel6.RowCount = 3;
-            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 8.72093F));
-            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 70.34884F));
-            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 20.930233F));
-            tableLayoutPanel6.Size = new Size(488, 312);
+            tableLayoutPanel6.RowCount = 4;
+            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 8.021391F));
+            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 8.020535F));
+            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 64.706955F));
+            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 19.2511234F));
+            tableLayoutPanel6.Size = new Size(488, 383);
             tableLayoutPanel6.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Dock = DockStyle.Fill;
-            pictureBox1.Location = new Point(51, 30);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(384, 213);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
             // 
             // tableLayoutPanel7
             // 
@@ -528,20 +561,20 @@
             tableLayoutPanel7.Controls.Add(button1, 1, 0);
             tableLayoutPanel7.Controls.Add(button2, 0, 0);
             tableLayoutPanel7.Dock = DockStyle.Fill;
-            tableLayoutPanel7.Location = new Point(51, 249);
+            tableLayoutPanel7.Location = new Point(51, 310);
             tableLayoutPanel7.Name = "tableLayoutPanel7";
             tableLayoutPanel7.RowCount = 2;
             tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel7.Size = new Size(384, 60);
+            tableLayoutPanel7.Size = new Size(384, 70);
             tableLayoutPanel7.TabIndex = 1;
             // 
             // button3
             // 
             button3.Dock = DockStyle.Fill;
-            button3.Location = new Point(3, 33);
+            button3.Location = new Point(3, 38);
             button3.Name = "button3";
-            button3.Size = new Size(186, 24);
+            button3.Size = new Size(186, 29);
             button3.TabIndex = 2;
             button3.Text = "Seleccionar de archivo";
             button3.UseVisualStyleBackColor = true;
@@ -551,7 +584,7 @@
             button1.Dock = DockStyle.Fill;
             button1.Location = new Point(195, 3);
             button1.Name = "button1";
-            button1.Size = new Size(186, 24);
+            button1.Size = new Size(186, 29);
             button1.TabIndex = 0;
             button1.Text = "Tomar Foto";
             button1.UseVisualStyleBackColor = true;
@@ -562,20 +595,66 @@
             button2.Dock = DockStyle.Fill;
             button2.Location = new Point(3, 3);
             button2.Name = "button2";
-            button2.Size = new Size(186, 24);
+            button2.Size = new Size(186, 29);
             button2.TabIndex = 1;
             button2.Text = "Iniciar Camara";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Dock = DockStyle.Fill;
+            pictureBox1.Location = new Point(51, 63);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(384, 241);
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
             // comboBox1
             // 
-            comboBox1.Dock = DockStyle.Fill;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(51, 3);
+            comboBox1.Location = new Point(51, 33);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(384, 28);
             comboBox1.TabIndex = 2;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Dock = DockStyle.Fill;
+            label18.Location = new Point(51, 0);
+            label18.Name = "label18";
+            label18.Size = new Size(384, 30);
+            label18.TabIndex = 3;
+            label18.Text = "FOTO";
+            label18.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel8
+            // 
+            tableLayoutPanel8.ColumnCount = 5;
+            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel8.Controls.Add(button4, 2, 0);
+            tableLayoutPanel8.Dock = DockStyle.Fill;
+            tableLayoutPanel8.Location = new Point(167, 392);
+            tableLayoutPanel8.Name = "tableLayoutPanel8";
+            tableLayoutPanel8.RowCount = 1;
+            tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel8.Size = new Size(488, 33);
+            tableLayoutPanel8.TabIndex = 2;
+            // 
+            // button4
+            // 
+            button4.Dock = DockStyle.Fill;
+            button4.Location = new Point(197, 3);
+            button4.Name = "button4";
+            button4.Size = new Size(91, 27);
+            button4.TabIndex = 1;
+            button4.Text = "GUARDAR";
+            button4.UseVisualStyleBackColor = true;
             // 
             // Addregistro
             // 
@@ -585,6 +664,7 @@
             ClientSize = new Size(935, 766);
             Controls.Add(tableLayoutPanel1);
             Name = "Addregistro";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Addregistro";
             FormClosing += Addregistro_FormClosing;
             Load += Addregistro_Load;
@@ -596,8 +676,10 @@
             tableLayoutPanel3.PerformLayout();
             tableLayoutPanel5.ResumeLayout(false);
             tableLayoutPanel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            tableLayoutPanel6.PerformLayout();
             tableLayoutPanel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            tableLayoutPanel8.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -644,5 +726,11 @@
         private Button button3;
         private Button button2;
         private ComboBox comboBox1;
+        private ComboBox comboBox2;
+        private Label label18;
+        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dateTimePicker2;
+        private TableLayoutPanel tableLayoutPanel8;
+        private Button button4;
     }
 }
