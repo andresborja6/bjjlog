@@ -15,6 +15,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using AForge.Video;
 using AForge.Video.DirectShow;
+using System.Net.Mail;
 
 namespace bjjlog
 {

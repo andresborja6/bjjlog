@@ -6,6 +6,8 @@ using System.Data.Common;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -191,6 +193,7 @@ namespace bjjlog
                     command2.Parameters.AddWithValue("@valor4", fechaFinal);
                     command2.Parameters.AddWithValue("@valor5", comboBox4.Text);
                     int ultimoId2 = Convert.ToInt32(command2.ExecuteScalar());
+                    EnviarCorreo(textBox10.Text, textBox1.Text + " " + textBox2.Text);
                 }
             }
 
@@ -229,6 +232,29 @@ namespace bjjlog
                 imagen.Save(ruta);
             }
         }
+        static void EnviarCorreo(string destinatario, string nombre)
+        {
+            try
+            {
+                SmtpClient smtpClient = new SmtpClient("smtp.office365.com", 587);
+                smtpClient.EnableSsl = true;
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = new NetworkCredential("aborja@ebfactory.com", "Xbox360slim");
 
+                MailMessage mail = new MailMessage();
+                mail.From = new MailAddress("aborja@ebfactory.com");
+                mail.To.Add(destinatario);
+                mail.Subject = "Bienvenido a la familia Checkmat Colombia";
+                mail.Body = "<!DOCTYPE html>\r\n<html>\r\n<head>\r\n    <title>Bienvenido/a al equipo de Jiujitsu</title>\r\n    <style>\r\n        @media only screen and (max-width: 600px) {\r\n            .container {\r\n                width: 100% !important;\r\n            }\r\n        }\r\n    </style>\r\n</head>\r\n<body>\r\n    <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"max-width: 600px;\">\r\n        <tr>\r\n            <td align=\"center\" bgcolor=\"#f2f2f2\" style=\"padding: 20px;\">\r\n                <img src=\"https://images.squarespace-cdn.com/content/v1/5c6e97287a1fbd0c4dabcccc/1552339663635-XS5GP3Z7U872NH61J0RO/logo.png\" alt=\"Imagen de bienvenida\" style=\"max-width: 100%; height: auto;\">\r\n                <h1 style=\"color: #333333; text-align: center;\">¡Bienvenido/a Checkmat Colombia</h1>\r\n                <p style=\"font-size: 16px; text-align: center;\">Estimado/a " + nombre + ",</p>\r\n                <p style=\"font-size: 16px; text-align: center;\">¡Gracias por unirte a nuestro equipo de Jiujitsu! Estamos emocionados de tenerte como parte de nuestra comunidad y esperamos compartir increíbles experiencias de entrenamiento y crecimiento contigo.</p>\r\n                <p style=\"font-size: 16px; text-align: center;\">Como miembro de nuestro equipo, tendrás acceso a entrenamientos de alta calidad, aprendizaje constante y una comunidad apasionada y solidaria.</p>\r\n                <p style=\"font-size: 16px; text-align: center;\">Si tienes alguna pregunta, no dudes en comunicarte con nosotros. Estamos aquí para ayudarte en tu viaje en el mundo del Jiujitsu.</p>\r\n                <p style=\"font-size: 16px; text-align: center;\">¡Bienvenido/a una vez más y nos vemos en los entrenamientos!</p>\r\n                <p style=\"font-size: 16px; text-align: center;\">Atentamente,</p>\r\n                <p style=\"font-size: 16px; text-align: center;\">Alessandro Nagaishi</p>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n</body>\r\n</html>";
+                mail.IsBodyHtml = true;
+                smtpClient.Send(mail);
+
+                Console.WriteLine("Correo enviado correctamente.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al enviar el correo: " + ex.Message);
+            }
+        }
     }
 }
