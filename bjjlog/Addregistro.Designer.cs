@@ -64,12 +64,15 @@
             comboBox2 = new ComboBox();
             dateTimePicker1 = new DateTimePicker();
             dateTimePicker2 = new DateTimePicker();
+            comboBox3 = new ComboBox();
+            label19 = new Label();
+            comboBox4 = new ComboBox();
             tableLayoutPanel5 = new TableLayoutPanel();
             tableLayoutPanel6 = new TableLayoutPanel();
             tableLayoutPanel7 = new TableLayoutPanel();
+            button2 = new Button();
             button3 = new Button();
             button1 = new Button();
-            button2 = new Button();
             pictureBox1 = new PictureBox();
             comboBox1 = new ComboBox();
             label18 = new Label();
@@ -186,6 +189,9 @@
             tableLayoutPanel3.Controls.Add(comboBox2, 3, 4);
             tableLayoutPanel3.Controls.Add(dateTimePicker1, 3, 2);
             tableLayoutPanel3.Controls.Add(dateTimePicker2, 5, 4);
+            tableLayoutPanel3.Controls.Add(comboBox3, 1, 5);
+            tableLayoutPanel3.Controls.Add(label19, 2, 5);
+            tableLayoutPanel3.Controls.Add(comboBox4, 3, 5);
             tableLayoutPanel3.Dock = DockStyle.Fill;
             tableLayoutPanel3.Location = new Point(3, 3);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -514,6 +520,39 @@
             dateTimePicker2.Size = new Size(133, 27);
             dateTimePicker2.TabIndex = 32;
             // 
+            // comboBox3
+            // 
+            comboBox3.Dock = DockStyle.Fill;
+            comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox3.FormattingEnabled = true;
+            comboBox3.Location = new Point(140, 143);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new Size(131, 28);
+            comboBox3.TabIndex = 33;
+            comboBox3.SelectedIndexChanged += comboBox3_SelectedIndexChanged;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Dock = DockStyle.Right;
+            label19.Location = new Point(385, 140);
+            label19.Name = "label19";
+            label19.Size = new Size(42, 28);
+            label19.TabIndex = 34;
+            label19.Text = "Pago";
+            label19.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // comboBox4
+            // 
+            comboBox4.Dock = DockStyle.Fill;
+            comboBox4.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox4.FormattingEnabled = true;
+            comboBox4.Items.AddRange(new object[] { "Si", "No" });
+            comboBox4.Location = new Point(433, 143);
+            comboBox4.Name = "comboBox4";
+            comboBox4.Size = new Size(140, 28);
+            comboBox4.TabIndex = 35;
+            // 
             // tableLayoutPanel5
             // 
             tableLayoutPanel5.ColumnCount = 3;
@@ -557,9 +596,9 @@
             tableLayoutPanel7.ColumnCount = 2;
             tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel7.Controls.Add(button3, 0, 1);
-            tableLayoutPanel7.Controls.Add(button1, 1, 0);
             tableLayoutPanel7.Controls.Add(button2, 0, 0);
+            tableLayoutPanel7.Controls.Add(button3, 1, 0);
+            tableLayoutPanel7.Controls.Add(button1, 0, 1);
             tableLayoutPanel7.Dock = DockStyle.Fill;
             tableLayoutPanel7.Location = new Point(51, 310);
             tableLayoutPanel7.Name = "tableLayoutPanel7";
@@ -568,27 +607,6 @@
             tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel7.Size = new Size(384, 70);
             tableLayoutPanel7.TabIndex = 1;
-            // 
-            // button3
-            // 
-            button3.Dock = DockStyle.Fill;
-            button3.Location = new Point(3, 38);
-            button3.Name = "button3";
-            button3.Size = new Size(186, 29);
-            button3.TabIndex = 2;
-            button3.Text = "Seleccionar de archivo";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            button1.Dock = DockStyle.Fill;
-            button1.Location = new Point(195, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(186, 29);
-            button1.TabIndex = 0;
-            button1.Text = "Tomar Foto";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -600,6 +618,28 @@
             button2.Text = "Iniciar Camara";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
+            // 
+            // button3
+            // 
+            button3.Dock = DockStyle.Fill;
+            button3.Location = new Point(195, 3);
+            button3.Name = "button3";
+            button3.Size = new Size(186, 29);
+            button3.TabIndex = 2;
+            button3.Text = "Seleccionar de archivo";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // button1
+            // 
+            button1.Dock = DockStyle.Fill;
+            button1.Location = new Point(3, 38);
+            button1.Name = "button1";
+            button1.Size = new Size(186, 29);
+            button1.TabIndex = 0;
+            button1.Text = "Tomar Foto";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // pictureBox1
             // 
@@ -655,6 +695,7 @@
             button4.TabIndex = 1;
             button4.Text = "GUARDAR";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // Addregistro
             // 
@@ -732,5 +773,8 @@
         private DateTimePicker dateTimePicker2;
         private TableLayoutPanel tableLayoutPanel8;
         private Button button4;
+        private ComboBox comboBox3;
+        private Label label19;
+        private ComboBox comboBox4;
     }
 }

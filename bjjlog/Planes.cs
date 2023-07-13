@@ -21,9 +21,13 @@ namespace bjjlog
             InitializeComponent();
         }
         public string connectionString { get; set; }
+        public int lunes, martes, miercoles, jueves, viernes, sabado, domingo = 0;
+        public int identifi = 0;
         private void Planes_Load(object sender, EventArgs e)
         {
             cargarDatos();
+            button1.Show();
+            button2.Hide();
         }
         private void checkBox8_CheckedChanged(object sender, EventArgs e)
         {
@@ -83,70 +87,23 @@ namespace bjjlog
                     command2.Parameters.AddWithValue("@valor5", Convert.ToDecimal(textBox3.Text));
                     int ultimoId2 = Convert.ToInt32(command2.ExecuteScalar());
 
-                    if (checkBox1.Checked)
-                    {
-                        string query3 = "INSERT INTO DiasPermitidos (plan_id,diaSemana) VALUES (@valor6, @valor7); SELECT CAST(SCOPE_IDENTITY() AS INT);";
 
-                        SqlCommand command3 = new SqlCommand(query3, connection);
-                        command3.Parameters.AddWithValue("@valor6", ultimoId);
-                        command3.Parameters.AddWithValue("@valor7", 1);
-                        int ultimoId3 = Convert.ToInt32(command3.ExecuteScalar());
-                    }
-                    if (checkBox2.Checked)
-                    {
-                        string query4 = "INSERT INTO DiasPermitidos (plan_id,diaSemana) VALUES (@valor8, @valor9); SELECT CAST(SCOPE_IDENTITY() AS INT);";
+                    string query3 = "INSERT INTO DiasPermitidos (plan_id,lunes,martes,miercoles,jueves,viernes,sabado,domingo) VALUES (@valor1, @valor2,@valor3, @valor4,@valor5, @valor6,@valor7, @valor8);";
 
-                        SqlCommand command4 = new SqlCommand(query4, connection);
-                        command4.Parameters.AddWithValue("@valor8", ultimoId);
-                        command4.Parameters.AddWithValue("@valor9", 2);
-                        int ultimoId4 = Convert.ToInt32(command4.ExecuteScalar());
-                    }
-                    if (checkBox3.Checked)
-                    {
-                        string query5 = "INSERT INTO DiasPermitidos (plan_id,diaSemana) VALUES (@valor1, @valor2); SELECT CAST(SCOPE_IDENTITY() AS INT);";
+                    SqlCommand command3 = new SqlCommand(query3, connection);
+                    command3.Parameters.AddWithValue("@valor1", ultimoId);
+                    command3.Parameters.AddWithValue("@valor2", lunes);
+                    command3.Parameters.AddWithValue("@valor3", martes);
+                    command3.Parameters.AddWithValue("@valor4", miercoles);
+                    command3.Parameters.AddWithValue("@valor5", jueves);
+                    command3.Parameters.AddWithValue("@valor6", viernes);
+                    command3.Parameters.AddWithValue("@valor7", sabado);
+                    command3.Parameters.AddWithValue("@valor8", domingo);
+                    int ultimoId3 = Convert.ToInt32(command3.ExecuteScalar());
 
-                        SqlCommand command5 = new SqlCommand(query5, connection);
-                        command5.Parameters.AddWithValue("@valor1", ultimoId);
-                        command5.Parameters.AddWithValue("@valor2", 3);
-                        int ultimoId5 = Convert.ToInt32(command5.ExecuteScalar());
-                    }
-                    if (checkBox4.Checked)
-                    {
-                        string query6 = "INSERT INTO DiasPermitidos (plan_id,diaSemana) VALUES (@valor1, @valor2); SELECT CAST(SCOPE_IDENTITY() AS INT);";
-
-                        SqlCommand command6 = new SqlCommand(query6, connection);
-                        command6.Parameters.AddWithValue("@valor1", ultimoId);
-                        command6.Parameters.AddWithValue("@valor2", 4);
-                        int ultimoId6 = Convert.ToInt32(command6.ExecuteScalar());
-                    }
-                    if (checkBox5.Checked)
-                    {
-                        string query7 = "INSERT INTO DiasPermitidos (plan_id,diaSemana) VALUES (@valor1, @valor2); SELECT CAST(SCOPE_IDENTITY() AS INT);";
-
-                        SqlCommand command7 = new SqlCommand(query7, connection);
-                        command7.Parameters.AddWithValue("@valor1", ultimoId);
-                        command7.Parameters.AddWithValue("@valor2", 5);
-                        int ultimoId7 = Convert.ToInt32(command7.ExecuteScalar());
-                    }
-                    if (checkBox6.Checked)
-                    {
-                        string query8 = "INSERT INTO DiasPermitidos (plan_id,diaSemana) VALUES (@valor1, @valor2); SELECT CAST(SCOPE_IDENTITY() AS INT);";
-
-                        SqlCommand command8 = new SqlCommand(query8, connection);
-                        command8.Parameters.AddWithValue("@valor1", ultimoId);
-                        command8.Parameters.AddWithValue("@valor2", 6);
-                        int ultimoId8 = Convert.ToInt32(command8.ExecuteScalar());
-                    }
-                    if (checkBox7.Checked)
-                    {
-                        string query9 = "INSERT INTO DiasPermitidos (plan_id,diaSemana) VALUES (@valor1, @valor2); SELECT CAST(SCOPE_IDENTITY() AS INT);";
-
-                        SqlCommand command9 = new SqlCommand(query9, connection);
-                        command9.Parameters.AddWithValue("@valor1", ultimoId);
-                        command9.Parameters.AddWithValue("@valor2", 7);
-                        int ultimoId9 = Convert.ToInt32(command9.ExecuteScalar());
-                    }
                     MessageBox.Show("Datos Guardados");
+                    cargarDatos();
+                    limpiar();
                 }
             }
         }
@@ -218,6 +175,7 @@ namespace bjjlog
                             MessageBox.Show($"Registros eliminados: {rowsAffected}");
                         }
                         cargarDatos();
+                        limpiar();
                         connection.Close();
                     }
                 }
@@ -236,7 +194,7 @@ namespace bjjlog
 
                 dataGridView1.Columns.Clear();
                 DataTable table = new DataTable();
-                SqlDataAdapter adapter = new SqlDataAdapter(" Select Planes.id, Planes.nombre, Planes.descripcion, Tarifas.precio from Planes inner join Tarifas on Planes.id = Tarifas.plan_id", connection);
+                SqlDataAdapter adapter = new SqlDataAdapter("Select Planes.id, Planes.nombre, Planes.descripcion, Tarifas.precio, Tarifas.vigencia, DiasPermitidos.lunes, DiasPermitidos.martes, DiasPermitidos.miercoles, DiasPermitidos.jueves,  DiasPermitidos.viernes,  DiasPermitidos.sabado, DiasPermitidos.domingo from Planes inner join Tarifas on Planes.id = Tarifas.plan_id inner join DiasPermitidos on Planes.id = DiasPermitidos.plan_id", connection);
                 adapter.Fill(table);
 
                 dataGridView1.DataSource = table;
@@ -244,6 +202,14 @@ namespace bjjlog
                 dataGridView1.Columns[1].HeaderText = "NOMBRE PLAN";
                 dataGridView1.Columns[2].HeaderText = "DESCRIPCION";
                 dataGridView1.Columns[3].HeaderText = "TARIFAS";
+                dataGridView1.Columns[4].HeaderText = "VIGENCIA";
+                dataGridView1.Columns[5].Visible = false;
+                dataGridView1.Columns[6].Visible = false;
+                dataGridView1.Columns[7].Visible = false;
+                dataGridView1.Columns[8].Visible = false;
+                dataGridView1.Columns[9].Visible = false;
+                dataGridView1.Columns[10].Visible = false;
+                dataGridView1.Columns[11].Visible = false;
                 DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
                 buttonColumn.Name = "ELIMINAR";
                 buttonColumn.HeaderText = "ELIMINAR";
@@ -251,6 +217,158 @@ namespace bjjlog
 
                 connection.Close();
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            button1.Hide();
+            button2.Show();
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
+
+                string valorColumna1 = selectedRow.Cells[0].Value.ToString();
+                string valorColumna2 = selectedRow.Cells[1].Value.ToString();
+                string valorColumna3 = selectedRow.Cells[2].Value.ToString();
+                string valorColumna4 = selectedRow.Cells[3].Value.ToString();
+                string valorColumna5 = selectedRow.Cells[4].Value.ToString();
+                string valorColumna6 = selectedRow.Cells[5].Value.ToString();
+                string valorColumna7 = selectedRow.Cells[6].Value.ToString();
+                string valorColumna8 = selectedRow.Cells[7].Value.ToString();
+                string valorColumna9 = selectedRow.Cells[8].Value.ToString();
+                string valorColumna10 = selectedRow.Cells[9].Value.ToString();
+                string valorColumna11 = selectedRow.Cells[10].Value.ToString();
+                string valorColumna12 = selectedRow.Cells[11].Value.ToString();
+
+                identifi = Convert.ToInt32(valorColumna1);
+                textBox1.Text = valorColumna2;
+                textBox2.Text = valorColumna3;
+                textBox3.Text = valorColumna4;
+                textBox4.Text = valorColumna5;
+
+                if (valorColumna6 == "1") { checkBox1.Checked = true; } else { checkBox1.Checked = false; }
+                if (valorColumna7 == "1") { checkBox2.Checked = true; } else { checkBox2.Checked = false; }
+                if (valorColumna8 == "1") { checkBox3.Checked = true; } else { checkBox3.Checked = false; }
+                if (valorColumna9 == "1") { checkBox4.Checked = true; } else { checkBox4.Checked = false; }
+                if (valorColumna10 == "1") { checkBox5.Checked = true; } else { checkBox5.Checked = false; }
+                if (valorColumna11 == "1") { checkBox6.Checked = true; } else { checkBox6.Checked = false; }
+                if (valorColumna12 == "1") { checkBox7.Checked = true; } else { checkBox7.Checked = false; }
+                checkBox1.Enabled = true;
+                checkBox2.Enabled = true;
+                checkBox3.Enabled = true;
+                checkBox4.Enabled = true;
+                checkBox5.Enabled = true;
+                checkBox6.Enabled = true;
+                checkBox7.Enabled = true;
+                checkBox8.Enabled = true;
+
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked) { lunes = 1; } else { lunes = 0; checkBox1.Checked = false; }
+            checkBox1.Enabled = true;
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox2.Checked) { martes = 1; } else { martes = 0; checkBox2.Checked = false; }
+            checkBox2.Enabled = true;
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox3.Checked) { miercoles = 1; } else { miercoles = 0; checkBox3.Checked = false; }
+            checkBox3.Enabled = true;
+        }
+
+        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox4.Checked) { jueves = 1; } else { jueves = 0; checkBox4.Checked = false; }
+            checkBox4.Enabled = true;
+        }
+
+        private void checkBox5_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox5.Checked) { viernes = 1; } else { viernes = 0; checkBox5.Checked = false; }
+            checkBox5.Enabled = true;
+        }
+
+        private void checkBox6_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox6.Checked) { sabado = 1; } else { sabado = 0; checkBox6.Checked = false; }
+            checkBox6.Enabled = true;
+        }
+
+        private void checkBox7_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox7.Checked) { domingo = 1; } else { domingo = 0; checkBox7.Checked = false; }
+            checkBox7.Enabled = true;
+        }
+
+        public void limpiar()
+        {
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            checkBox1.Checked = false;
+            checkBox2.Checked = false;
+            checkBox3.Checked = false;
+            checkBox4.Checked = false;
+            checkBox5.Checked = false;
+            checkBox6.Checked = false;
+            checkBox7.Checked = false;
+            checkBox8.Checked = false;
+            button1.Show();
+            button2.Hide();
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "update Planes set nombre = @valor1, descripcion = @valor2 where id = @valor3";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@valor1", textBox1.Text);
+                command.Parameters.AddWithValue("@valor2", textBox2.Text);
+                command.Parameters.AddWithValue("@valor3", identifi);
+                int filasActualizadas = command.ExecuteNonQuery();
+
+                string query2 = "update Tarifas set vigencia = @valor1, precio = @valor2 where plan_id = @valor3";
+
+                SqlCommand command2 = new SqlCommand(query2, connection);
+                command2.Parameters.AddWithValue("@valor3", identifi);
+                command2.Parameters.AddWithValue("@valor1", Convert.ToInt32(textBox4.Text));
+                command2.Parameters.AddWithValue("@valor2", Convert.ToDecimal(textBox3.Text));
+                int filasActualizadas2 = command2.ExecuteNonQuery();
+
+                string query3 = "update DiasPermitidos set lunes = @valor1, martes = @valor2, miercoles = @valor3, jueves = @valor4, viernes = @valor5, sabado = @valor6, domingo = @valor7 where plan_id = @valor8";
+
+                SqlCommand command3 = new SqlCommand(query3, connection);
+                command3.Parameters.AddWithValue("@valor1", lunes);
+                command3.Parameters.AddWithValue("@valor2", martes);
+                command3.Parameters.AddWithValue("@valor3", miercoles);
+                command3.Parameters.AddWithValue("@valor4", jueves);
+                command3.Parameters.AddWithValue("@valor5", viernes);
+                command3.Parameters.AddWithValue("@valor6", sabado);
+                command3.Parameters.AddWithValue("@valor7", domingo);
+                command3.Parameters.AddWithValue("@valor8", identifi);
+                int filasActualizadas3 = command3.ExecuteNonQuery();
+
+                MessageBox.Show("Datos Guardados");
+                cargarDatos();
+                limpiar();
+                connection.Close();
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            limpiar();
+
         }
     }
 }
