@@ -105,6 +105,10 @@
             dataGridView1.RowTemplate.Height = 29;
             dataGridView1.Size = new Size(974, 248);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellClick += dataGridView1_CellClick;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            dataGridView1.CellFormatting += dataGridView1_CellFormatting;
+            dataGridView1.CellPainting += dataGridView1_CellPainting;
             // 
             // tableLayoutPanel3
             // 
@@ -192,17 +196,15 @@
             // tableLayoutPanel6
             // 
             tableLayoutPanel6.ColumnCount = 3;
-            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
-            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
-            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel6.Controls.Add(button1, 1, 0);
             tableLayoutPanel6.Dock = DockStyle.Fill;
             tableLayoutPanel6.Location = new Point(197, 3);
             tableLayoutPanel6.Name = "tableLayoutPanel6";
             tableLayoutPanel6.RowCount = 1;
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel6.Size = new Size(578, 226);
             tableLayoutPanel6.TabIndex = 1;
             // 
@@ -211,9 +213,9 @@
             button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
             button1.BackgroundImageLayout = ImageLayout.Zoom;
             button1.Dock = DockStyle.Fill;
-            button1.Location = new Point(205, 3);
+            button1.Location = new Point(195, 3);
             button1.Name = "button1";
-            button1.Size = new Size(167, 220);
+            button1.Size = new Size(186, 220);
             button1.TabIndex = 0;
             button1.Text = "Agregar Registro";
             button1.TextAlign = ContentAlignment.BottomCenter;
