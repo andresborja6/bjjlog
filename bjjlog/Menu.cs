@@ -53,6 +53,7 @@ namespace bjjlog
         private void button4_Click(object sender, EventArgs e)
         {
             UsuarioApp usuarioApp = new UsuarioApp();
+            usuarioApp.connectionString = connectionString;
             usuarioApp.ShowDialog();
         }
     }
