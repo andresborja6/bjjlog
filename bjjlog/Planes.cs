@@ -21,7 +21,7 @@ namespace bjjlog
             InitializeComponent();
         }
         public string connectionString { get; set; }
-        public int lunes, martes, miercoles, jueves, viernes, sabado, domingo = 0;
+        public int lunes, martes, miercoles, jueves, viernes, sabado, domingo = 0, cantidad = 0, cuantas = 0;
         public int identifi = 0;
         private void Planes_Load(object sender, EventArgs e)
         {
@@ -72,11 +72,13 @@ namespace bjjlog
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    string query = "INSERT INTO Planes(nombre, descripcion) VALUES (@valor1, @valor2); SELECT CAST(SCOPE_IDENTITY() AS INT);";
+                    string query = "INSERT INTO Planes(nombre, descripcion, clase, cantidad) VALUES (@valor1, @valor2, @valor3, @valor4); SELECT CAST(SCOPE_IDENTITY() AS INT);";
 
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@valor1", textBox1.Text);
                     command.Parameters.AddWithValue("@valor2", textBox2.Text);
+                    command.Parameters.AddWithValue("@valor3", cantidad);
+                    command.Parameters.AddWithValue("@valor4", txtcuantas.Text);
                     int ultimoId = Convert.ToInt32(command.ExecuteScalar());
 
                     string query2 = "INSERT INTO Tarifas (plan_id,vigencia,precio) VALUES (@valor3, @valor4, @valor5); SELECT CAST(SCOPE_IDENTITY() AS INT);";
@@ -194,7 +196,7 @@ namespace bjjlog
 
                 dataGridView1.Columns.Clear();
                 DataTable table = new DataTable();
-                SqlDataAdapter adapter = new SqlDataAdapter("Select Planes.id, Planes.nombre, Planes.descripcion, Tarifas.precio, Tarifas.vigencia, DiasPermitidos.lunes, DiasPermitidos.martes, DiasPermitidos.miercoles, DiasPermitidos.jueves,  DiasPermitidos.viernes,  DiasPermitidos.sabado, DiasPermitidos.domingo from Planes inner join Tarifas on Planes.id = Tarifas.plan_id inner join DiasPermitidos on Planes.id = DiasPermitidos.plan_id", connection);
+                SqlDataAdapter adapter = new SqlDataAdapter("Select Planes.id, Planes.nombre, Planes.descripcion, Tarifas.precio, Tarifas.vigencia, DiasPermitidos.lunes, DiasPermitidos.martes, DiasPermitidos.miercoles, DiasPermitidos.jueves,  DiasPermitidos.viernes,  DiasPermitidos.sabado, DiasPermitidos.domingo, Planes.clase, Planes.cantidad from Planes inner join Tarifas on Planes.id = Tarifas.plan_id inner join DiasPermitidos on Planes.id = DiasPermitidos.plan_id\r\n", connection);
                 adapter.Fill(table);
 
                 dataGridView1.DataSource = table;
@@ -210,6 +212,8 @@ namespace bjjlog
                 dataGridView1.Columns[9].Visible = false;
                 dataGridView1.Columns[10].Visible = false;
                 dataGridView1.Columns[11].Visible = false;
+                dataGridView1.Columns[12].Visible = false;
+                dataGridView1.Columns[13].Visible = false;
                 DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
                 buttonColumn.Name = "ELIMINAR";
                 buttonColumn.HeaderText = "ELIMINAR";
@@ -239,12 +243,15 @@ namespace bjjlog
                 string valorColumna10 = selectedRow.Cells[9].Value.ToString();
                 string valorColumna11 = selectedRow.Cells[10].Value.ToString();
                 string valorColumna12 = selectedRow.Cells[11].Value.ToString();
+                string valorColumna13 = selectedRow.Cells[12].Value.ToString();
+                string valorColumna14 = selectedRow.Cells[13].Value.ToString();
 
                 identifi = Convert.ToInt32(valorColumna1);
                 textBox1.Text = valorColumna2;
                 textBox2.Text = valorColumna3;
                 textBox3.Text = valorColumna4;
                 textBox4.Text = valorColumna5;
+                txtcuantas.Text = valorColumna14;
 
                 if (valorColumna6 == "1") { checkBox1.Checked = true; } else { checkBox1.Checked = false; }
                 if (valorColumna7 == "1") { checkBox2.Checked = true; } else { checkBox2.Checked = false; }
@@ -253,6 +260,7 @@ namespace bjjlog
                 if (valorColumna10 == "1") { checkBox5.Checked = true; } else { checkBox5.Checked = false; }
                 if (valorColumna11 == "1") { checkBox6.Checked = true; } else { checkBox6.Checked = false; }
                 if (valorColumna12 == "1") { checkBox7.Checked = true; } else { checkBox7.Checked = false; }
+                if (valorColumna13 == "1") { checkBox9.Checked = true; } else { checkBox9.Checked = false; }
                 checkBox1.Enabled = true;
                 checkBox2.Enabled = true;
                 checkBox3.Enabled = true;
@@ -261,6 +269,7 @@ namespace bjjlog
                 checkBox6.Enabled = true;
                 checkBox7.Enabled = true;
                 checkBox8.Enabled = true;
+                checkBox9.Enabled = true;
 
             }
         }
@@ -313,6 +322,7 @@ namespace bjjlog
             textBox2.Text = "";
             textBox3.Text = "";
             textBox4.Text = "";
+            txtcuantas.Text = "";
             checkBox1.Checked = false;
             checkBox2.Checked = false;
             checkBox3.Checked = false;
@@ -321,20 +331,25 @@ namespace bjjlog
             checkBox6.Checked = false;
             checkBox7.Checked = false;
             checkBox8.Checked = false;
+            checkBox9.Checked = false;
             button1.Show();
             button2.Hide();
+            cantidad = 0;
+            cuantas = 0;
         }
         private void button2_Click(object sender, EventArgs e)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string query = "update Planes set nombre = @valor1, descripcion = @valor2 where id = @valor3";
+                string query = "update Planes set nombre = @valor1, descripcion = @valor2, clase = @valor4, cantidad = @valor5 where id = @valor3";
 
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@valor1", textBox1.Text);
                 command.Parameters.AddWithValue("@valor2", textBox2.Text);
                 command.Parameters.AddWithValue("@valor3", identifi);
+                command.Parameters.AddWithValue("@valor4", cantidad);
+                command.Parameters.AddWithValue("@valor5", txtcuantas.Text);
                 int filasActualizadas = command.ExecuteNonQuery();
 
                 string query2 = "update Tarifas set vigencia = @valor1, precio = @valor2 where plan_id = @valor3";
@@ -369,6 +384,30 @@ namespace bjjlog
         {
             limpiar();
 
+        }
+
+        private void checkBox9_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox9.Checked)
+            {
+                txtcuantas.Visible = true;
+                label8.Visible = true;
+                cantidad = 1;
+            }
+            else
+            {
+                txtcuantas.Visible = false;
+                label8.Visible = false;
+                cantidad = 0;
+            }
+        }
+
+        private void txtcuantas_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

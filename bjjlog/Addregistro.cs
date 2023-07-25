@@ -1,19 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.Common;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
 using System.Net.Mail;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using AForge.Video;
 using AForge.Video.DirectShow;
-
 
 namespace bjjlog
 {
@@ -255,6 +245,10 @@ namespace bjjlog
             {
                 Console.WriteLine("Error al enviar el correo: " + ex.Message);
             }
+        }
+        private void button5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

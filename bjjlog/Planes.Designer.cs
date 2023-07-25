@@ -43,6 +43,11 @@
             label5 = new Label();
             label2 = new Label();
             textBox1 = new TextBox();
+            tableLayoutPanel8 = new TableLayoutPanel();
+            checkBox9 = new CheckBox();
+            label8 = new Label();
+            txtcuantas = new TextBox();
+            label7 = new Label();
             tableLayoutPanel6 = new TableLayoutPanel();
             label6 = new Label();
             checkBox3 = new CheckBox();
@@ -63,6 +68,7 @@
             tableLayoutPanel3.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
+            tableLayoutPanel8.SuspendLayout();
             tableLayoutPanel6.SuspendLayout();
             tableLayoutPanel7.SuspendLayout();
             SuspendLayout();
@@ -180,6 +186,8 @@
             tableLayoutPanel5.Controls.Add(label5, 4, 0);
             tableLayoutPanel5.Controls.Add(label2, 0, 0);
             tableLayoutPanel5.Controls.Add(textBox1, 1, 0);
+            tableLayoutPanel5.Controls.Add(tableLayoutPanel8, 3, 1);
+            tableLayoutPanel5.Controls.Add(label7, 2, 1);
             tableLayoutPanel5.Dock = DockStyle.Fill;
             tableLayoutPanel5.Location = new Point(3, 3);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -269,6 +277,67 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(94, 27);
             textBox1.TabIndex = 4;
+            // 
+            // tableLayoutPanel8
+            // 
+            tableLayoutPanel8.ColumnCount = 3;
+            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 27.6595745F));
+            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 72.34042F));
+            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 75F));
+            tableLayoutPanel8.Controls.Add(checkBox9, 0, 0);
+            tableLayoutPanel8.Controls.Add(label8, 1, 0);
+            tableLayoutPanel8.Controls.Add(txtcuantas, 2, 0);
+            tableLayoutPanel8.Dock = DockStyle.Fill;
+            tableLayoutPanel8.Location = new Point(330, 35);
+            tableLayoutPanel8.Name = "tableLayoutPanel8";
+            tableLayoutPanel8.RowCount = 1;
+            tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel8.Size = new Size(179, 31);
+            tableLayoutPanel8.TabIndex = 9;
+            // 
+            // checkBox9
+            // 
+            checkBox9.AutoSize = true;
+            checkBox9.Dock = DockStyle.Fill;
+            checkBox9.Location = new Point(3, 3);
+            checkBox9.Name = "checkBox9";
+            checkBox9.Size = new Size(22, 25);
+            checkBox9.TabIndex = 8;
+            checkBox9.UseVisualStyleBackColor = true;
+            checkBox9.CheckedChanged += checkBox9_CheckedChanged;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Dock = DockStyle.Fill;
+            label8.Location = new Point(31, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(69, 31);
+            label8.TabIndex = 9;
+            label8.Text = "Cuantas?";
+            label8.TextAlign = ContentAlignment.MiddleRight;
+            label8.Visible = false;
+            // 
+            // txtcuantas
+            // 
+            txtcuantas.Dock = DockStyle.Fill;
+            txtcuantas.Location = new Point(106, 3);
+            txtcuantas.Name = "txtcuantas";
+            txtcuantas.Size = new Size(70, 27);
+            txtcuantas.TabIndex = 10;
+            txtcuantas.Visible = false;
+            txtcuantas.KeyPress += txtcuantas_KeyPress;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Dock = DockStyle.Right;
+            label7.Location = new Point(250, 32);
+            label7.Name = "label7";
+            label7.Size = new Size(74, 37);
+            label7.TabIndex = 10;
+            label7.Text = "Por clase?";
+            label7.TextAlign = ContentAlignment.MiddleRight;
             // 
             // tableLayoutPanel6
             // 
@@ -467,6 +536,8 @@
             tableLayoutPanel4.ResumeLayout(false);
             tableLayoutPanel5.ResumeLayout(false);
             tableLayoutPanel5.PerformLayout();
+            tableLayoutPanel8.ResumeLayout(false);
+            tableLayoutPanel8.PerformLayout();
             tableLayoutPanel6.ResumeLayout(false);
             tableLayoutPanel6.PerformLayout();
             tableLayoutPanel7.ResumeLayout(false);
@@ -504,5 +575,10 @@
         private TableLayoutPanel tableLayoutPanel7;
         private Button button2;
         private Button button3;
+        private TableLayoutPanel tableLayoutPanel8;
+        private CheckBox checkBox9;
+        private Label label8;
+        private TextBox txtcuantas;
+        private Label label7;
     }
 }

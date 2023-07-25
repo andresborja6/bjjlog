@@ -78,6 +78,7 @@
             label18 = new Label();
             tableLayoutPanel8 = new TableLayoutPanel();
             button4 = new Button();
+            button5 = new Button();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
@@ -678,6 +679,7 @@
             tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             tableLayoutPanel8.Controls.Add(button4, 2, 0);
+            tableLayoutPanel8.Controls.Add(button5, 4, 0);
             tableLayoutPanel8.Dock = DockStyle.Fill;
             tableLayoutPanel8.Location = new Point(167, 392);
             tableLayoutPanel8.Name = "tableLayoutPanel8";
@@ -696,6 +698,16 @@
             button4.Text = "GUARDAR";
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(391, 3);
+            button5.Name = "button5";
+            button5.Size = new Size(94, 27);
+            button5.TabIndex = 2;
+            button5.Text = "button5";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // Addregistro
             // 
@@ -776,5 +788,6 @@
         private ComboBox comboBox3;
         private Label label19;
         private ComboBox comboBox4;
+        private Button button5;
     }
 }
