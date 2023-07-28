@@ -14,7 +14,7 @@ namespace bjjlog
         private Bitmap capturedImage;
         private bool isVideoPlaying = true;
         public string connectionString { get; set; }
-        int idsel, vigenci = 0;
+        int idsel, cantidad, vigenci = 0;
         public Addregistro()
         {
             InitializeComponent();
@@ -111,7 +111,7 @@ namespace bjjlog
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "select Planes.id, Planes.nombre, Tarifas.vigencia from Planes inner join Tarifas on Planes.id = Tarifas.plan_id";
+                string query = "select Planes.id, Planes.nombre, Tarifas.vigencia, Planes.cantidad from Planes inner join Tarifas on Planes.id = Tarifas.plan_id";
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connection);
                 DataTable dataTable = new DataTable();
                 dataAdapter.Fill(dataTable);
@@ -121,7 +121,8 @@ namespace bjjlog
                     int id = Convert.ToInt32(row[0]);
                     string texto = row[1].ToString();
                     int vigencia = Convert.ToInt32(row[2]);
-                    comboBox3.Items.Add(new Item { ID = id, Texto = texto, Vigencia = vigencia });
+                    int cantidad = Convert.ToInt32(row[3]);
+                    comboBox3.Items.Add(new Item { ID = id, Texto = texto, Vigencia = vigencia, Cantidad = cantidad });
                 }
 
                 comboBox3.DisplayMember = "Texto";
@@ -133,6 +134,7 @@ namespace bjjlog
             public int ID { get; set; }
             public string Texto { get; set; }
             public int Vigencia { get; set; }
+            public int Cantidad { get; set; }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -174,7 +176,7 @@ namespace bjjlog
                 {
                     GuardarImagenDesdePictureBox(rutaDestino);
                     DateTime fechaFinal = dateTimePicker2.Value.AddDays(vigenci);
-                    string query2 = "Insert into movimientos (idregistro,idplan,fechainicio,fechafin,pago) VALUES (@valor1,@valor2,@valor3,@valor4,@valor5)";
+                    string query2 = "Insert into movimientos (idregistro,idplan,fechainicio,fechafin,pago,cantidad) VALUES (@valor1,@valor2,@valor3,@valor4,@valor5,@valor6)";
 
                     SqlCommand command2 = new SqlCommand(query2, connection);
                     command2.Parameters.AddWithValue("@valor1", ultimoId);
@@ -182,8 +184,10 @@ namespace bjjlog
                     command2.Parameters.AddWithValue("@valor3", dateTimePicker2.Value);
                     command2.Parameters.AddWithValue("@valor4", fechaFinal);
                     command2.Parameters.AddWithValue("@valor5", comboBox4.Text);
+                    command2.Parameters.AddWithValue("@valor6", cantidad);
                     int ultimoId2 = Convert.ToInt32(command2.ExecuteScalar());
                     EnviarCorreo(textBox10.Text, textBox1.Text + " " + textBox2.Text);
+                    this.Close();
                 }
             }
 
@@ -193,6 +197,7 @@ namespace bjjlog
         {
             idsel = ((Item)comboBox3.SelectedItem).ID;
             vigenci = ((Item)comboBox3.SelectedItem).Vigencia;
+            cantidad = ((Item)comboBox3.SelectedItem).Cantidad;
         }
 
         private void button3_Click(object sender, EventArgs e)

@@ -1,1 +1,1 @@
-localhost\\SQLEXPRESS,bjjlog
+DESKTOP-OB8DT61,bjjlog

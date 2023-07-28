@@ -32,7 +32,7 @@ namespace bjjlog
         public string connectionString { get; set; }
         public int Idregistro { get; set; }
         public string rutaimagen = "";
-        int idsel, vigenci = 0;
+        int idsel, cantidad, vigenci = 0;
         private void Updregistro_Load(object sender, EventArgs e)
         {
             button1.Hide();
@@ -128,7 +128,7 @@ namespace bjjlog
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "select Planes.id, Planes.nombre, Tarifas.vigencia from Planes inner join Tarifas on Planes.id = Tarifas.plan_id";
+                string query = "select Planes.id, Planes.nombre, Tarifas.vigencia, Planes.cantidad from Planes inner join Tarifas on Planes.id = Tarifas.plan_id";
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connection);
                 DataTable dataTable = new DataTable();
                 dataAdapter.Fill(dataTable);
@@ -138,7 +138,8 @@ namespace bjjlog
                     int id = Convert.ToInt32(row[0]);
                     string texto = row[1].ToString();
                     int vigencia = Convert.ToInt32(row[2]);
-                    cbplan.Items.Add(new Item { ID = id, Texto = texto, Vigencia = vigencia });
+                    int cantidad = Convert.ToInt32(row[3]);
+                    cbplan.Items.Add(new Item { ID = id, Texto = texto, Vigencia = vigencia, Cantidad = cantidad });
                 }
 
                 cbplan.DisplayMember = "Texto";
@@ -150,6 +151,7 @@ namespace bjjlog
             public int ID { get; set; }
             public string Texto { get; set; }
             public int Vigencia { get; set; }
+            public int Cantidad { get; set; }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -273,7 +275,7 @@ namespace bjjlog
                 {
                     GuardarImagenDesdePictureBox(rutaimagen);
                     DateTime fechaFinal = dtpfechainicio.Value.AddDays(vigenci);
-                    string query2 = "Insert into movimientos (idregistro,idplan,fechainicio,fechafin,pago) VALUES (@valor1,@valor2,@valor3,@valor4,@valor5)";
+                    string query2 = "Insert into movimientos (idregistro,idplan,fechainicio,fechafin,pago,cantidad) VALUES (@valor1,@valor2,@valor3,@valor4,@valor5,@valor6)";
 
                     SqlCommand command2 = new SqlCommand(query2, connection);
                     command2.Parameters.AddWithValue("@valor1", Idregistro);
@@ -281,6 +283,7 @@ namespace bjjlog
                     command2.Parameters.AddWithValue("@valor3", dtpfechainicio.Value);
                     command2.Parameters.AddWithValue("@valor4", fechaFinal);
                     command2.Parameters.AddWithValue("@valor5", cbpago.Text);
+                    command2.Parameters.AddWithValue("@valor6", cantidad);
                     int ultimoId2 = Convert.ToInt32(command2.ExecuteScalar());
                 }
             }
@@ -301,6 +304,7 @@ namespace bjjlog
         {
             idsel = ((Item)cbplan.SelectedItem).ID;
             vigenci = ((Item)cbplan.SelectedItem).Vigencia;
+            cantidad = ((Item)cbplan.SelectedItem).Cantidad;
         }
     }
 }
