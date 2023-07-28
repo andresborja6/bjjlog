@@ -31,7 +31,7 @@ namespace bjjlog
         }
         public string connectionString { get; set; }
         public int Idregistro { get; set; }
-        public string rutaimagen = "";
+        public string texto, rutaimagen = "";
         int idsel, cantidad, vigenci = 0;
         private void Updregistro_Load(object sender, EventArgs e)
         {
@@ -243,7 +243,7 @@ namespace bjjlog
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (txtnombre.Text == "" && txtapellido.Text == "" && txtidentificacion.Text == "")
+            if (txtnombre.Text == "" && txtapellido.Text == "" && txtidentificacion.Text == "" && cbpago.Text == "")
             {
                 MessageBox.Show("Por lo menos llenar informacion basica");
                 return;
@@ -285,6 +285,10 @@ namespace bjjlog
                     command2.Parameters.AddWithValue("@valor5", cbpago.Text);
                     command2.Parameters.AddWithValue("@valor6", cantidad);
                     int ultimoId2 = Convert.ToInt32(command2.ExecuteScalar());
+                    if (cbpago.Text == "Si")
+                    {
+                        EnviarPago(txtemail.Text, txtnombre.Text + " " + txtapellido.Text, dtpfechainicio.Value, fechaFinal, texto);
+                    }
                 }
             }
             this.Close();
@@ -305,6 +309,31 @@ namespace bjjlog
             idsel = ((Item)cbplan.SelectedItem).ID;
             vigenci = ((Item)cbplan.SelectedItem).Vigencia;
             cantidad = ((Item)cbplan.SelectedItem).Cantidad;
+            texto = ((Item)cbplan.SelectedItem).Texto;
+        }
+        static void EnviarPago(string destinatario, string nombre, DateTime inicio, DateTime fin, string plan)
+        {
+            try
+            {
+                SmtpClient smtpClient = new SmtpClient("smtp.office365.com", 587);
+                smtpClient.EnableSsl = true;
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = new NetworkCredential("aborja@ebfactory.com", "Xbox360slim");
+
+                MailMessage mail = new MailMessage();
+                mail.From = new MailAddress("aborja@ebfactory.com");
+                mail.To.Add(destinatario);
+                mail.Subject = "Recibimos tu pago!!!";
+                mail.Body = "<!DOCTYPE html><html><head><title>Confirmación de Pago</title><style>body {font-family: Arial, sans-serif;text-align: center; margin: 50px; }h1 { color: #007bff; } p {font-size: 18px; }.button {display: inline-block;padding: 10px 20px;background-color: #007bff;color: #fff;text-decoration: none; border-radius: 5px;margin-top: 20px; } .image-container { display: inline-block;margin-right: 10px; }</style></head><body><table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"max-width: 600px;\"><tr><td align=\"center\" bgcolor=\"white\" style=\"padding: 20px;\"><div class=\"image-container\"><img src=\"https://lh3.googleusercontent.com/p/AF1QipON79mde03CWrFcylPvQ-EqWgTW03lZxlq65Kgg=s1360-w1360-h1020\" alt=\"Imagen de bienvenida\" style=\"width: 150px; height: 150px;\"></div><div class=\"image-container\"><img src=\"https://checkmatmadrid.com/wp-content/uploads/2016/02/checkmat-logo.jpg\"alt=\"Imagen de bienvenida\" style=\"width: 150px; height: 150px;\"></div><br><h1>¡Pago Registrado con Éxito!</h1><p>Hola " + nombre + " Gracias por realizar el pago. Hemos registrado la transacción en nuestro sistema.</p><p>Adquiriste el plan: " + plan + " </p><p>Tiene vigencia desde " + inicio.ToString("yyyy-MM-dd") + " hasta " + fin.ToString("yyyy-MM-dd") + "</p><p>Si tienes alguna pregunta o inquietud, no dudes en contactarnos.</p><a class=\"button\" href=\"https://api.whatsapp.com/send?phone=573104372005&text=Hola tengo una inquietud con mi pago.\" target=\"_blank\">Contactar</a></td></tr></table></body></html>";
+                mail.IsBodyHtml = true;
+                smtpClient.Send(mail);
+
+                Console.WriteLine("Correo enviado correctamente.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al enviar el correo: " + ex.Message);
+            }
         }
     }
 }

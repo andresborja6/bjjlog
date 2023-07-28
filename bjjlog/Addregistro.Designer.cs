@@ -707,6 +707,7 @@
             button5.TabIndex = 2;
             button5.Text = "button5";
             button5.UseVisualStyleBackColor = true;
+            button5.Visible = false;
             button5.Click += button5_Click;
             // 
             // Addregistro

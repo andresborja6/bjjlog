@@ -40,6 +40,7 @@ namespace bjjlog
         private void button3_Click(object sender, EventArgs e)
         {
             Reportes reportes = new Reportes();
+            reportes.connectionString = connectionString;
             reportes.ShowDialog();
         }
 

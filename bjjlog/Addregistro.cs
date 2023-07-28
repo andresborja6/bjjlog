@@ -4,6 +4,7 @@ using System.Net.Mail;
 using System.Net;
 using AForge.Video;
 using AForge.Video.DirectShow;
+using System.Numerics;
 
 namespace bjjlog
 {
@@ -15,6 +16,7 @@ namespace bjjlog
         private bool isVideoPlaying = true;
         public string connectionString { get; set; }
         int idsel, cantidad, vigenci = 0;
+        string texto = "";
         public Addregistro()
         {
             InitializeComponent();
@@ -139,7 +141,7 @@ namespace bjjlog
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "" && textBox2.Text == "" && textBox3.Text == "")
+            if (textBox1.Text == "" && textBox2.Text == "" && textBox3.Text == "" && comboBox3.Text == "")
             {
                 MessageBox.Show("Por lo menos llenar informacion basica");
                 return;
@@ -187,6 +189,10 @@ namespace bjjlog
                     command2.Parameters.AddWithValue("@valor6", cantidad);
                     int ultimoId2 = Convert.ToInt32(command2.ExecuteScalar());
                     EnviarCorreo(textBox10.Text, textBox1.Text + " " + textBox2.Text);
+                    if (comboBox4.Text == "Si")
+                    {
+                        EnviarPago(textBox10.Text, textBox1.Text + " " + textBox2.Text, dateTimePicker2.Value, fechaFinal, texto);
+                    }
                     this.Close();
                 }
             }
@@ -198,6 +204,7 @@ namespace bjjlog
             idsel = ((Item)comboBox3.SelectedItem).ID;
             vigenci = ((Item)comboBox3.SelectedItem).Vigencia;
             cantidad = ((Item)comboBox3.SelectedItem).Cantidad;
+            texto = ((Item)comboBox3.SelectedItem).Texto;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -240,7 +247,32 @@ namespace bjjlog
                 mail.From = new MailAddress("aborja@ebfactory.com");
                 mail.To.Add(destinatario);
                 mail.Subject = "Bienvenido a la familia Checkmat Colombia";
-                mail.Body = "<!DOCTYPE html>\r\n<html>\r\n<head>\r\n    <title>Bienvenido/a al equipo de Jiujitsu</title>\r\n    <style>\r\n        @media only screen and (max-width: 600px) {\r\n            .container {\r\n                width: 100% !important;\r\n            }\r\n        }\r\n    </style>\r\n</head>\r\n<body>\r\n    <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"max-width: 600px;\">\r\n        <tr>\r\n            <td align=\"center\" bgcolor=\"#f2f2f2\" style=\"padding: 20px;\">\r\n                <img src=\"https://images.squarespace-cdn.com/content/v1/5c6e97287a1fbd0c4dabcccc/1552339663635-XS5GP3Z7U872NH61J0RO/logo.png\" alt=\"Imagen de bienvenida\" style=\"max-width: 100%; height: auto;\">\r\n                <h1 style=\"color: #333333; text-align: center;\">¡Bienvenido/a Checkmat Colombia</h1>\r\n                <p style=\"font-size: 16px; text-align: center;\">Estimado/a " + nombre + ",</p>\r\n                <p style=\"font-size: 16px; text-align: center;\">¡Gracias por unirte a nuestro equipo de Jiujitsu! Estamos emocionados de tenerte como parte de nuestra comunidad y esperamos compartir increíbles experiencias de entrenamiento y crecimiento contigo.</p>\r\n                <p style=\"font-size: 16px; text-align: center;\">Como miembro de nuestro equipo, tendrás acceso a entrenamientos de alta calidad, aprendizaje constante y una comunidad apasionada y solidaria.</p>\r\n                <p style=\"font-size: 16px; text-align: center;\">Si tienes alguna pregunta, no dudes en comunicarte con nosotros. Estamos aquí para ayudarte en tu viaje en el mundo del Jiujitsu.</p>\r\n                <p style=\"font-size: 16px; text-align: center;\">¡Bienvenido/a una vez más y nos vemos en los entrenamientos!</p>\r\n                <p style=\"font-size: 16px; text-align: center;\">Atentamente,</p>\r\n                <p style=\"font-size: 16px; text-align: center;\">Alessandro Nagaishi</p>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n</body>\r\n</html>";
+                mail.Body = "<!DOCTYPE html><html><head><title>Bienvenido/a al equipo de Jiujitsu</title><style>@media only screen and (max-width: 600px){.container{width: 100% !important;}}.image-container {display: inline-block;margin-right: 10px;}</style></head><body><table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"max-width: 600px;\"><tr><td align=\"center\" bgcolor=\"white\" style=\"padding: 20px;\"><div class=\"image-container\"><img src=\"https://lh3.googleusercontent.com/p/AF1QipON79mde03CWrFcylPvQ-EqWgTW03lZxlq65Kgg=s1360-w1360-h1020\" alt=\"Imagen de bienvenida\" style=\"width: 150px; height: 150px;\"></div><div class=\"image-container\"><img src=\"https://checkmatmadrid.com/wp-content/uploads/2016/02/checkmat-logo.jpg\" alt=\"Imagen de bienvenida\" style=\"width: 200px; height: 200px;\"></div><br><h1 style=\"color: #333333; text-align: center;\">¡Bienvenido/a Checkmat Colombia</h1><p style=\"font-size: 16px; text-align: center;\">Estimado/a  " + nombre + ",</p><p style=\"font-size: 16px; text-align: center;\">¡Gracias por unirte a nuestro equipo! Estamos emocionados de tenerte como parte de nuestra comunidad y esperamos compartir increíbles experiencias de entrenamiento y crecimiento contigo.</p><p style=\"font-size: 16px; text-align: center;\">Como miembro de nuestro equipo, tendrás acceso a entrenamientos de alta calidad, aprendizaje constante y una comunidad apasionada y solidaria.</p><p style=\"font-size: 16px; text-align: center;\">Si tienes alguna pregunta, no dudes en comunicarte con nosotros. Estamos aquí para ayudarte en tu viaje en el mundo del Jiujitsu.</p><p style=\"font-size: 16px; text-align: center;\">¡Bienvenido/a una vez más y nos vemos en los entrenamientos!</p><p style=\"font-size: 16px; text-align: center;\">Atentamente,</p><p style=\"font-size: 16px; text-align: center;\">Alessandro Nagaishi</p></td></tr></table></body></html>";
+                mail.IsBodyHtml = true;
+                smtpClient.Send(mail);
+
+                Console.WriteLine("Correo enviado correctamente.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al enviar el correo: " + ex.Message);
+            }
+        }
+
+        static void EnviarPago(string destinatario, string nombre, DateTime inicio, DateTime fin, string plan)
+        {
+            try
+            {
+                SmtpClient smtpClient = new SmtpClient("smtp.office365.com", 587);
+                smtpClient.EnableSsl = true;
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = new NetworkCredential("aborja@ebfactory.com", "Xbox360slim");
+
+                MailMessage mail = new MailMessage();
+                mail.From = new MailAddress("aborja@ebfactory.com");
+                mail.To.Add(destinatario);
+                mail.Subject = "Recibimos tu pago!!!";
+                mail.Body = "<!DOCTYPE html><html><head><title>Confirmación de Pago</title><style>body {font-family: Arial, sans-serif;text-align: center; margin: 50px; }h1 { color: #007bff; } p {font-size: 18px; }.button {display: inline-block;padding: 10px 20px;background-color: #007bff;color: #fff;text-decoration: none; border-radius: 5px;margin-top: 20px; } .image-container { display: inline-block;margin-right: 10px; }</style></head><body><table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"max-width: 600px;\"><tr><td align=\"center\" bgcolor=\"white\" style=\"padding: 20px;\"><div class=\"image-container\"><img src=\"https://lh3.googleusercontent.com/p/AF1QipON79mde03CWrFcylPvQ-EqWgTW03lZxlq65Kgg=s1360-w1360-h1020\" alt=\"Imagen de bienvenida\" style=\"width: 150px; height: 150px;\"></div><div class=\"image-container\"><img src=\"https://checkmatmadrid.com/wp-content/uploads/2016/02/checkmat-logo.jpg\"alt=\"Imagen de bienvenida\" style=\"width: 150px; height: 150px;\"></div><br><h1>¡Pago Registrado con Éxito!</h1><p>Hola " + nombre + " Gracias por realizar el pago. Hemos registrado la transacción en nuestro sistema.</p><p>Adquiriste el plan " + plan + " </p><p>Tiene vigencia desde " + inicio.ToString("yyyy-MM-dd") + " hasta " + fin.ToString("yyyy-MM-dd") + "</p><p>Si tienes alguna pregunta o inquietud, no dudes en contactarnos.</p><a class=\"button\" href=\"https://api.whatsapp.com/send?phone=573104372005&text=Hola tengo una inquietud con mi pago.\" target=\"_blank\">Contactar</a></td></tr></table></body></html>";
                 mail.IsBodyHtml = true;
                 smtpClient.Send(mail);
 
