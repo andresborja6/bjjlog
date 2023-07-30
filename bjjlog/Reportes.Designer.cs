@@ -154,6 +154,7 @@
             button2.TextAlign = ContentAlignment.BottomCenter;
             button2.TextImageRelation = TextImageRelation.ImageAboveText;
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // dataGridView1
             // 
@@ -169,6 +170,9 @@
             dataGridView1.RowTemplate.Height = 29;
             dataGridView1.Size = new Size(864, 250);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellClick += dataGridView1_CellClick;
+            dataGridView1.CellFormatting += dataGridView1_CellFormatting;
+            dataGridView1.CellPainting += dataGridView1_CellPainting;
             // 
             // tableLayoutPanel5
             // 

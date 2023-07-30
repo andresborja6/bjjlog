@@ -22,6 +22,9 @@
     <Compile Update="Reportes.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ReportGeneral.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Updregistro.cs">
       <SubType>Form</SubType>
     </Compile>

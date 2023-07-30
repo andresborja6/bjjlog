@@ -65,3 +65,6 @@ C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\bin\Debug\net6.0-windows\System.Dra
 C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\obj\Debug\net6.0-windows\bjjlog.Updregistro.resources
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\obj\Debug\net6.0-windows\bjjlog.ReportGeneral.resources
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\bin\Debug\net6.0-windows\WinForms.DataVisualization.Utilities.dll
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\bin\Debug\net6.0-windows\WinForms.DataVisualization.dll
