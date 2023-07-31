@@ -261,9 +261,9 @@ namespace bjjlog
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (txtnombre.Text == "" && txtapellido.Text == "" && txtidentificacion.Text == "" && cbpago.Text == "")
+            if (txtnombre.Text == "" || txtapellido.Text == "" || txtidentificacion.Text == "" || cbpago.Text == "")
             {
-                MessageBox.Show("Por lo menos llenar informacion basica");
+                MessageBox.Show("Por lo menos llenar informacion basica o validar pago");
                 return;
             }
 

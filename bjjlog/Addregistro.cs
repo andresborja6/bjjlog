@@ -159,9 +159,9 @@ namespace bjjlog
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "" && textBox2.Text == "" && textBox3.Text == "" && comboBox3.Text == "")
+            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || comboBox3.Text == "" || comboBox3.Text == "")
             {
-                MessageBox.Show("Por lo menos llenar informacion basica");
+                MessageBox.Show("Por lo menos llenar informacion basica o validar pago");
                 return;
             }
             string carpetaDestino = Environment.CurrentDirectory + @"\imagenes";
