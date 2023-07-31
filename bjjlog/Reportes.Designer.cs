@@ -129,7 +129,8 @@
             // 
             // button1
             // 
-            button1.BackgroundImageLayout = ImageLayout.Zoom;
+            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
+            button1.BackgroundImageLayout = ImageLayout.Center;
             button1.Dock = DockStyle.Fill;
             button1.Location = new Point(131, 3);
             button1.Name = "button1";
@@ -144,7 +145,7 @@
             // button2
             // 
             button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
-            button2.BackgroundImageLayout = ImageLayout.Stretch;
+            button2.BackgroundImageLayout = ImageLayout.Center;
             button2.Dock = DockStyle.Fill;
             button2.Location = new Point(259, 3);
             button2.Name = "button2";

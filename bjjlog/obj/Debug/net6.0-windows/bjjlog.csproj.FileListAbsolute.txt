@@ -68,3 +68,4 @@ C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\obj\Debug\net6.0-windows\bjjlog.Upd
 C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\obj\Debug\net6.0-windows\bjjlog.ReportGeneral.resources
 C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\bin\Debug\net6.0-windows\WinForms.DataVisualization.Utilities.dll
 C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\bin\Debug\net6.0-windows\WinForms.DataVisualization.dll
+C:\Users\ACER\Desktop\Personal\bjjlog\bjjlog\obj\Debug\net6.0-windows\bjjlog.CredencialesMail.resources

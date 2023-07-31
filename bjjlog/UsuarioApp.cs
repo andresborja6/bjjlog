@@ -172,5 +172,12 @@ namespace bjjlog
                 }
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CredencialesMail credencialesMail = new CredencialesMail();
+            credencialesMail.connectionString = connectionString;
+            credencialesMail.Show();
+        }
     }
 }

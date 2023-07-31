@@ -121,16 +121,21 @@ namespace bjjlog
             {
                 filters.Add("r.Identificacion LIKE '%" + txtidentificacion.Text + "%'");
             }
-            if (dateTimePicker1.Value != DateTimePicker.MinimumDateTime)
+            if (dateTimePicker1.Value.ToString("yyyy-MM-dd") != DateTime.Today.ToString("yyyy-MM-dd"))
             {
-                // Agrega el filtro de fecha a la lista de filtros
-                filters.Add("a.fecha >= '" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "'");
+                if (dateTimePicker1.Value != DateTimePicker.MinimumDateTime)
+                {
+                    // Agrega el filtro de fecha a la lista de filtros
+                    filters.Add("a.fecha >= '" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "'");
+                }
+
             }
             if (dateTimePicker2.Value != DateTimePicker.MinimumDateTime)
             {
                 // Agrega el filtro de fecha a la lista de filtros
                 filters.Add("a.fecha <= '" + dateTimePicker2.Value.ToString("yyyy-MM-dd") + "'");
             }
+
 
             string whereClause = string.Join(" AND ", filters);
 
