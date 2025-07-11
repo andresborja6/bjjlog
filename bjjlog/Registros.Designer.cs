@@ -167,7 +167,7 @@
             label3.Name = "label3";
             label3.Size = new Size(280, 32);
             label3.TabIndex = 2;
-            label3.Text = "Identificacion";
+            label3.Text = "Buscar";
             label3.TextAlign = ContentAlignment.MiddleRight;
             // 
             // textBox1

@@ -256,7 +256,7 @@ namespace bjjlog
         {
             try
             {
-                SmtpClient smtpClient = new SmtpClient("smtp.office365.com", 587);
+                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
                 smtpClient.EnableSsl = true;
                 smtpClient.UseDefaultCredentials = false;
                 smtpClient.Credentials = new NetworkCredential(Remitente, Pass);
@@ -281,7 +281,7 @@ namespace bjjlog
         {
             try
             {
-                SmtpClient smtpClient = new SmtpClient("smtp.office365.com", 587);
+                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
                 smtpClient.EnableSsl = true;
                 smtpClient.UseDefaultCredentials = false;
                 smtpClient.Credentials = new NetworkCredential(Remitente, Pass);

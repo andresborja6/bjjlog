@@ -329,29 +329,68 @@ namespace bjjlog
             cantidad = ((Item)cbplan.SelectedItem).Cantidad;
             texto = ((Item)cbplan.SelectedItem).Texto;
         }
-        static void EnviarPago(string destinatario, string nombre, DateTime inicio, DateTime fin, string plan, string Remitente, string Pass)
+        static void EnviarPago(string destinatario, string nombre, DateTime inicio, DateTime fin, string plan, string remitente, string pass)
         {
             try
             {
-                SmtpClient smtpClient = new SmtpClient("smtp.office365.com", 587);
-                smtpClient.EnableSsl = true;
-                smtpClient.UseDefaultCredentials = false;
-                smtpClient.Credentials = new NetworkCredential(Remitente, Pass);
+                using (var smtpClient = new SmtpClient("smtp.gmail.com", 587))
+                {
+                    smtpClient.EnableSsl = true;
+                    smtpClient.UseDefaultCredentials = false;
+                    smtpClient.Credentials = new NetworkCredential(remitente, pass);
 
-                MailMessage mail = new MailMessage();
-                mail.From = new MailAddress(Remitente);
-                mail.To.Add(destinatario);
-                mail.Subject = "Recibimos tu pago!!!";
-                mail.Body = "<!DOCTYPE html><html><head><title>Confirmación de Pago</title><style>body {font-family: Arial, sans-serif;text-align: center; margin: 50px; }h1 { color: #007bff; } p {font-size: 18px; }.button {display: inline-block;padding: 10px 20px;background-color: #007bff;color: #fff;text-decoration: none; border-radius: 5px;margin-top: 20px; } .image-container { display: inline-block;margin-right: 10px; }</style></head><body><table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"max-width: 600px;\"><tr><td align=\"center\" bgcolor=\"white\" style=\"padding: 20px;\"><div class=\"image-container\"><img src=\"https://lh3.googleusercontent.com/p/AF1QipON79mde03CWrFcylPvQ-EqWgTW03lZxlq65Kgg=s1360-w1360-h1020\" alt=\"Imagen de bienvenida\" style=\"width: 150px; height: 150px;\"></div><div class=\"image-container\"><img src=\"https://checkmatmadrid.com/wp-content/uploads/2016/02/checkmat-logo.jpg\"alt=\"Imagen de bienvenida\" style=\"width: 150px; height: 150px;\"></div><br><h1>¡Pago Registrado con Éxito!</h1><p>Hola " + nombre + " Gracias por realizar el pago. Hemos registrado la transacción en nuestro sistema.</p><p>Adquiriste el plan: " + plan + " </p><p>Tiene vigencia desde " + inicio.ToString("yyyy-MM-dd") + " hasta " + fin.ToString("yyyy-MM-dd") + "</p><p>Si tienes alguna pregunta o inquietud, no dudes en contactarnos.</p><a class=\"button\" href=\"https://api.whatsapp.com/send?phone=573104372005&text=Hola tengo una inquietud con mi pago.\" target=\"_blank\">Contactar</a></td></tr></table></body></html>";
-                mail.IsBodyHtml = true;
-                smtpClient.Send(mail);
+                    var mail = new MailMessage
+                    {
+                        From = new MailAddress(remitente),
+                        Subject = "¡Recibimos tu pago!",
+                        IsBodyHtml = true,
+                        Body = $@"
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>Confirmación de Pago</title>
+                    <style>
+                        body {{ font-family: Arial, sans-serif; text-align: center; margin: 50px; }}
+                        h1 {{ color: #007bff; }}
+                        p {{ font-size: 18px; }}
+                        .button {{ display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px; margin-top: 20px; }}
+                        .image-container {{ display: inline-block; margin-right: 10px; }}
+                    </style>
+                </head>
+                <body>
+                    <table align='center' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
+                        <tr>
+                            <td align='center' bgcolor='white' style='padding: 20px;'>
+                                <div class='image-container'>
+                                    <img src='https://lh3.googleusercontent.com/p/AF1QipON79mde03CWrFcylPvQ-EqWgTW03lZxlq65Kgg=s1360-w1360-h1020' alt='Imagen de bienvenida' style='width: 150px; height: 150px;'/>
+                                </div>
+                                <div class='image-container'>
+                                    <img src='https://checkmatmadrid.com/wp-content/uploads/2016/02/checkmat-logo.jpg' alt='Logo Checkmat' style='width: 150px; height: 150px;'/>
+                                </div>
+                                <h1>¡Pago Registrado con Éxito!</h1>
+                                <p>Hola {nombre}, gracias por realizar el pago. Hemos registrado la transacción en nuestro sistema.</p>
+                                <p>Adquiriste el plan: <strong>{plan}</strong></p>
+                                <p>Tiene vigencia desde <strong>{inicio:yyyy-MM-dd}</strong> hasta <strong>{fin:yyyy-MM-dd}</strong></p>
+                                <p>Si tienes alguna pregunta o inquietud, no dudes en contactarnos.</p>
+                                <a class='button' href='https://api.whatsapp.com/send?phone=573104372005&text=Hola tengo una inquietud con mi pago.' target='_blank'>Contactar</a>
+                            </td>
+                        </tr>
+                    </table>
+                </body>
+                </html>"
+                    };
 
-                Console.WriteLine("Correo enviado correctamente.");
+                    mail.To.Add(destinatario);
+
+                    smtpClient.Send(mail);
+                    Console.WriteLine("📧 Correo enviado correctamente.");
+                }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al enviar el correo: " + ex.Message);
+                Console.WriteLine("🚨 Error al enviar el correo: " + ex.Message);
             }
         }
+
     }
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("bjjlog")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8508e343deef46cd8d4d5c3ff5f9498b6120cc89")]
 [assembly: System.Reflection.AssemblyProductAttribute("bjjlog")]
 [assembly: System.Reflection.AssemblyTitleAttribute("bjjlog")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

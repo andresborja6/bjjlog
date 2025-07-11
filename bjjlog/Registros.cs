@@ -63,21 +63,34 @@ namespace bjjlog
             {
                 connection.Open();
 
-
                 dataGridView1.Columns.Clear();
                 DataTable table = new DataTable();
-                SqlDataAdapter adapter = new SqlDataAdapter("SELECT Id,Nombres, Apellidos, Identificacion,  Email  FROM registros where Identificacion like '%" + textBox1.Text + "%'", connection);
-                adapter.Fill(table);
 
+                SqlDataAdapter adapter = new SqlDataAdapter(@"
+            SELECT Id, Nombres, Apellidos, Identificacion, Email 
+            FROM registros 
+            WHERE 
+                Nombres LIKE @filtro OR
+                Apellidos LIKE @filtro OR
+                Identificacion LIKE @filtro OR
+                Email LIKE @filtro", connection);
+                adapter.SelectCommand.Parameters.AddWithValue("@filtro", "%" + textBox1.Text + "%");
+
+                adapter.Fill(table);
                 dataGridView1.DataSource = table;
+
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[1].HeaderText = "NOMBRES";
                 dataGridView1.Columns[2].HeaderText = "APELLIDOS";
-                dataGridView1.Columns[3].HeaderText = "IDENTIFICACION";
+                dataGridView1.Columns[3].HeaderText = "IDENTIFICACIÓN";
                 dataGridView1.Columns[4].HeaderText = "EMAIL";
+
+                // Botón MODIFICAR
                 DataGridViewButtonColumn buttonColumn1 = new DataGridViewButtonColumn();
                 buttonColumn1.Name = "MODIFICAR";
                 buttonColumn1.HeaderText = "MODIFICAR";
+
+                // Botón ELIMINAR
                 DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
                 buttonColumn.Name = "ELIMINAR";
                 buttonColumn.HeaderText = "ELIMINAR";
@@ -91,10 +104,10 @@ namespace bjjlog
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            /*if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
-            }
+            }*/
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -180,6 +193,13 @@ namespace bjjlog
 
                         string queryDelete3 = "DELETE FROM Planes where id =  @idCliente";
                         using (SqlCommand commandDelete3 = new SqlCommand(queryDelete3, connection))
+                        {
+                            commandDelete3.Parameters.AddWithValue("@idCliente", id);
+                            int rowsAffected = commandDelete3.ExecuteNonQuery();
+                        }
+
+                        string queryDelete4 = "DELETE FROM registros where id =  @idCliente";
+                        using (SqlCommand commandDelete3 = new SqlCommand(queryDelete4, connection))
                         {
                             commandDelete3.Parameters.AddWithValue("@idCliente", id);
                             int rowsAffected = commandDelete3.ExecuteNonQuery();
